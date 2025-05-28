@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>NCAA Wrestling Bracket Viewer</title>
+  <link href="bracket.css" rel="stylesheet"/>
+</head>
+<body>
+  <div id="weightSelector" style="text-align:center; margin: 12px 0;">
+    <button data-weight="125">125</button>
+    <button data-weight="133">133</button>
+    <button data-weight="141">141</button>
+    <button data-weight="149">149</button>
+    <button data-weight="157">157</button>
+    <button data-weight="165">165</button>
+    <button data-weight="174">174</button>
+    <button data-weight="184">184</button>
+    <button data-weight="197">197</button>
+    <button data-weight="285">285</button>
+  </div>
+
+  <h1 class="title" id="bracketTitle">125 lb NCAA Bracket - Full View</h1>
+  <div class="bracket-grid" id="bracketGrid"></div>
+
+<!-- PWA Setup -->
+<link rel="manifest" href="manifest.json" />
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js');
+  }
+</script>
+
+
+  <script src="html2pdf.bundle.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,968 @@
+{
+  "weight": 285,
+  "matches": [
+    {
+      "matchId": 0,
+      "round": "Prelim",
+      "wrestler1": {
+        "seed": 33,
+        "name": "Hayden Filipovich",
+        "school": "Purdue"
+      },
+      "wrestler2": {
+        "seed": 32,
+        "name": "Stephan Monchery",
+        "school": "Appalachian State"
+      },
+      "winnerMatch": 1,
+      "winnerSlot": "wrestler2",
+      "loserMatch": 32,
+      "loserSlot": "wrestler1"
+    },
+    {
+      "matchId": 1,
+      "round": "ChampR1",
+      "wrestler1": {
+        "seed": 1,
+        "name": "Gable Steveson",
+        "school": "Minnesota"
+      },
+      "wrestler2": {
+        "name": "TBD",
+        "fromMatch": 0
+      },
+      "winnerMatch": 17,
+      "winnerSlot": "wrestler1",
+      "loserMatch": 33,
+      "loserSlot": "wrestler1"
+    },
+    {
+      "matchId": 2,
+      "round": "ChampR1",
+      "wrestler1": {
+        "seed": 17,
+        "name": "Jake Andrews",
+        "school": "CSU Bakersfield"
+      },
+      "wrestler2": {
+        "seed": 16,
+        "name": "Yaraslau Slavikouski",
+        "school": "Rutgers"
+      },
+      "winnerMatch": 17,
+      "winnerSlot": "wrestler2",
+      "loserMatch": 33,
+      "loserSlot": "wrestler2"
+    },
+    {
+      "matchId": 3,
+      "round": "ChampR1",
+      "wrestler1": {
+        "seed": 9,
+        "name": "Cohlton Schultz",
+        "school": "Arizona State"
+      },
+      "wrestler2": {
+        "seed": 24,
+        "name": "Nolan Neves",
+        "school": "North Carolina"
+      },
+      "winnerMatch": 18,
+      "winnerSlot": "wrestler1",
+      "loserMatch": 34,
+      "loserSlot": "wrestler1"
+    },
+    {
+      "matchId": 4,
+      "round": "ChampR1",
+      "wrestler1": {
+        "seed": 25,
+        "name": "Luke Rasmussen",
+        "school": "South Dakota State"
+      },
+      "wrestler2": {
+        "seed": 8,
+        "name": "Luke Luffman",
+        "school": "Illinois"
+      },
+      "winnerMatch": 18,
+      "winnerSlot": "wrestler2",
+      "loserMatch": 34,
+      "loserSlot": "wrestler2"
+    },
+    {
+      "matchId": 5,
+      "round": "ChampR1",
+      "wrestler1": {
+        "seed": 5,
+        "name": "Ben Kueter",
+        "school": "Iowa"
+      },
+      "wrestler2": {
+        "seed": 28,
+        "name": "Daniel Herrera",
+        "school": "Iowa State"
+      },
+      "winnerMatch": 19,
+      "winnerSlot": "wrestler1",
+      "loserMatch": 35,
+      "loserSlot": "wrestler1"
+    },
+    {
+      "matchId": 6,
+      "round": "ChampR1",
+      "wrestler1": {
+        "seed": 21,
+        "name": "Jacob Bullock",
+        "school": "Indiana"
+      },
+      "wrestler2": {
+        "seed": 12,
+        "name": "Nick Feldman",
+        "school": "Ohio State"
+      },
+      "winnerMatch": 19,
+      "winnerSlot": "wrestler2",
+      "loserMatch": 35,
+      "loserSlot": "wrestler2"
+    },
+    {
+      "matchId": 7,
+      "round": "ChampR1",
+      "wrestler1": {
+        "seed": 13,
+        "name": "Seth Nevills",
+        "school": "Maryland"
+      },
+      "wrestler2": {
+        "seed": 20,
+        "name": "Jordan Greer",
+        "school": "Ohio"
+      },
+      "winnerMatch": 20,
+      "winnerSlot": "wrestler1",
+      "loserMatch": 36,
+      "loserSlot": "wrestler1"
+    },
+    {
+      "matchId": 8,
+      "round": "ChampR1",
+      "wrestler1": {
+        "seed": 29,
+        "name": "Ashton Davis",
+        "school": "Cornell"
+      },
+      "wrestler2": {
+        "seed": 4,
+        "name": "Owen Trephan",
+        "school": "Lehigh"
+      },
+      "winnerMatch": 20,
+      "winnerSlot": "wrestler2",
+      "loserMatch": 36,
+      "loserSlot": "wrestler2"
+    },
+    {
+      "matchId": 9,
+      "round": "ChampR1",
+      "wrestler1": {
+        "seed": 3,
+        "name": "Greg Kerkvliet",
+        "school": "Penn State"
+      },
+      "wrestler2": {
+        "seed": 30,
+        "name": "Sam Mitchell",
+        "school": "Wyoming"
+      },
+      "winnerMatch": 21,
+      "winnerSlot": "wrestler1",
+      "loserMatch": 32,
+      "loserSlot": "wrestler2"
+    },
+    {
+      "matchId": 10,
+      "round": "ChampR1",
+      "wrestler1": {
+        "seed": 19,
+        "name": "Cory Day",
+        "school": "Binghamton"
+      },
+      "wrestler2": {
+        "seed": 14,
+        "name": "Gavin Hoffman",
+        "school": "Lock Haven"
+      },
+      "winnerMatch": 21,
+      "winnerSlot": "wrestler2",
+      "loserMatch": 37,
+      "loserSlot": "wrestler1"
+    },
+    {
+      "matchId": 11,
+      "round": "ChampR1",
+      "wrestler1": {
+        "seed": 11,
+        "name": "Jimmy Mullen",
+        "school": "Virginia Tech"
+      },
+      "wrestler2": {
+        "seed": 22,
+        "name": "Brady Colbert",
+        "school": "Army West Point"
+      },
+      "winnerMatch": 22,
+      "winnerSlot": "wrestler1",
+      "loserMatch": 38,
+      "loserSlot": "wrestler1"
+    },
+    {
+      "matchId": 12,
+      "round": "ChampR1",
+      "wrestler1": {
+        "seed": 27,
+        "name": "Connor Barket",
+        "school": "Duke"
+      },
+      "wrestler2": {
+        "seed": 6,
+        "name": "Joshua Heindselman",
+        "school": "Michigan"
+      },
+      "winnerMatch": 22,
+      "winnerSlot": "wrestler2",
+      "loserMatch": 38,
+      "loserSlot": "wrestler2"
+    },
+    {
+      "matchId": 13,
+      "round": "ChampR1",
+      "wrestler1": {
+        "seed": 7,
+        "name": "Isaac Trumble",
+        "school": "NC State"
+      },
+      "wrestler2": {
+        "seed": 26,
+        "name": "Peter Ming",
+        "school": "Stanford"
+      },
+      "winnerMatch": 23,
+      "winnerSlot": "wrestler1",
+      "loserMatch": 39,
+      "loserSlot": "wrestler1"
+    },
+    {
+      "matchId": 14,
+      "round": "ChampR1",
+      "wrestler1": {
+        "seed": 23,
+        "name": "Daniel Bucknavich",
+        "school": "Cleveland State"
+      },
+      "wrestler2": {
+        "seed": 10,
+        "name": "Dayton Pitzer",
+        "school": "Pittsburgh"
+      },
+      "winnerMatch": 23,
+      "winnerSlot": "wrestler2",
+      "loserMatch": 39,
+      "loserSlot": "wrestler2"
+    },
+    {
+      "matchId": 15,
+      "round": "ChampR1",
+      "wrestler1": {
+        "seed": 15,
+        "name": "Trevor Tinker",
+        "school": "Cal Poly"
+      },
+      "wrestler2": {
+        "seed": 18,
+        "name": "Lance Runyon",
+        "school": "Northern Iowa"
+      },
+      "winnerMatch": 24,
+      "winnerSlot": "wrestler1",
+      "loserMatch": 40,
+      "loserSlot": "wrestler1"
+    },
+    {
+      "matchId": 16,
+      "round": "ChampR1",
+      "wrestler1": {
+        "seed": 31,
+        "name": "Max Vanadia",
+        "school": "Michigan State"
+      },
+      "wrestler2": {
+        "seed": 2,
+        "name": "Wyatt Hendrickson",
+        "school": "Oklahoma State"
+      },
+      "winnerMatch": 24,
+      "winnerSlot": "wrestler2",
+      "loserMatch": 40,
+      "loserSlot": "wrestler2"
+    },
+    {
+      "matchId": 17,
+      "round": "ChampR2",
+      "wrestler1": {
+        "name": "TBD"
+      },
+      "wrestler2": {
+        "name": "TBD"
+      },
+      "winnerMatch": 25,
+      "winnerSlot": "wrestler1",
+      "loserMatch": 48,
+      "loserSlot": "wrestler2"
+    },
+    {
+      "matchId": 18,
+      "round": "ChampR2",
+      "wrestler1": {
+        "name": "TBD"
+      },
+      "wrestler2": {
+        "name": "TBD"
+      },
+      "winnerMatch": 25,
+      "winnerSlot": "wrestler2",
+      "loserMatch": 47,
+      "loserSlot": "wrestler2"
+    },
+    {
+      "matchId": 19,
+      "round": "ChampR2",
+      "wrestler1": {
+        "name": "TBD"
+      },
+      "wrestler2": {
+        "name": "TBD"
+      },
+      "winnerMatch": 26,
+      "winnerSlot": "wrestler1",
+      "loserMatch": 46,
+      "loserSlot": "wrestler2"
+    },
+    {
+      "matchId": 20,
+      "round": "ChampR2",
+      "wrestler1": {
+        "name": "TBD"
+      },
+      "wrestler2": {
+        "name": "TBD"
+      },
+      "winnerMatch": 26,
+      "winnerSlot": "wrestler2",
+      "loserMatch": 45,
+      "loserSlot": "wrestler2"
+    },
+    {
+      "matchId": 21,
+      "round": "ChampR2",
+      "wrestler1": {
+        "name": "TBD"
+      },
+      "wrestler2": {
+        "name": "TBD"
+      },
+      "winnerMatch": 27,
+      "winnerSlot": "wrestler1",
+      "loserMatch": 44,
+      "loserSlot": "wrestler2"
+    },
+    {
+      "matchId": 22,
+      "round": "ChampR2",
+      "wrestler1": {
+        "name": "TBD"
+      },
+      "wrestler2": {
+        "name": "TBD"
+      },
+      "winnerMatch": 27,
+      "winnerSlot": "wrestler2",
+      "loserMatch": 43,
+      "loserSlot": "wrestler2"
+    },
+    {
+      "matchId": 23,
+      "round": "ChampR2",
+      "wrestler1": {
+        "name": "TBD"
+      },
+      "wrestler2": {
+        "name": "TBD"
+      },
+      "winnerMatch": 28,
+      "winnerSlot": "wrestler1",
+      "loserMatch": 42,
+      "loserSlot": "wrestler2"
+    },
+    {
+      "matchId": 24,
+      "round": "ChampR2",
+      "wrestler1": {
+        "name": "TBD"
+      },
+      "wrestler2": {
+        "name": "TBD"
+      },
+      "winnerMatch": 28,
+      "winnerSlot": "wrestler2",
+      "loserMatch": 41,
+      "loserSlot": "wrestler2"
+    },
+    {
+      "matchId": 25,
+      "round": "Quarterfinal",
+      "wrestler1": {
+        "name": "TBD"
+      },
+      "wrestler2": {
+        "name": "TBD"
+      },
+      "winnerMatch": 29,
+      "winnerSlot": "wrestler1",
+      "loserMatch": 54,
+      "loserSlot": "wrestler2"
+    },
+    {
+      "matchId": 26,
+      "round": "Quarterfinal",
+      "wrestler1": {
+        "name": "TBD"
+      },
+      "wrestler2": {
+        "name": "TBD"
+      },
+      "winnerMatch": 29,
+      "winnerSlot": "wrestler2",
+      "loserMatch": 53,
+      "loserSlot": "wrestler2"
+    },
+    {
+      "matchId": 27,
+      "round": "Quarterfinal",
+      "wrestler1": {
+        "name": "TBD"
+      },
+      "wrestler2": {
+        "name": "TBD"
+      },
+      "winnerMatch": 30,
+      "winnerSlot": "wrestler1",
+      "loserMatch": 56,
+      "loserSlot": "wrestler2"
+    },
+    {
+      "matchId": 28,
+      "round": "Quarterfinal",
+      "wrestler1": {
+        "name": "TBD"
+      },
+      "wrestler2": {
+        "name": "TBD"
+      },
+      "winnerMatch": 30,
+      "winnerSlot": "wrestler2",
+      "loserMatch": 55,
+      "loserSlot": "wrestler2"
+    },
+    {
+      "matchId": 29,
+      "round": "Semifinal",
+      "wrestler1": {
+        "name": "TBD"
+      },
+      "wrestler2": {
+        "name": "TBD"
+      },
+      "winnerMatch": 31,
+      "winnerSlot": "wrestler1",
+      "loserMatch": 60,
+      "loserSlot": "wrestler2"
+    },
+    {
+      "matchId": 30,
+      "round": "Semifinal",
+      "wrestler1": {
+        "name": "TBD"
+      },
+      "wrestler2": {
+        "name": "TBD"
+      },
+      "winnerMatch": 31,
+      "winnerSlot": "wrestler2",
+      "loserMatch": 59,
+      "loserSlot": "wrestler2"
+    },
+    {
+      "matchId": 31,
+      "round": "Final",
+      "wrestler1": {
+        "name": "TBD"
+      },
+      "wrestler2": {
+        "name": "TBD"
+      },
+      "winnerMatch": null,
+      "winnerSlot": null,
+      "loserMatch": null,
+      "loserSlot": null
+    },
+    {
+      "matchId": 32,
+      "round": "ConsPrelim",
+      "wrestler1": {
+        "name": "TBD"
+      },
+      "wrestler2": {
+        "name": "TBD"
+      },
+      "winnerMatch": 37,
+      "winnerSlot": "wrestler2",
+      "loserMatch": null,
+      "loserSlot": null
+    },
+    {
+      "matchId": 33,
+      "round": "ConsR1",
+      "wrestler1": {
+        "name": "TBD"
+      },
+      "wrestler2": {
+        "name": "TBD"
+      },
+      "winnerMatch": 41,
+      "winnerSlot": "wrestler1",
+      "loserMatch": null,
+      "loserSlot": null
+    },
+    {
+      "matchId": 34,
+      "round": "ConsR1",
+      "wrestler1": {
+        "name": "TBD"
+      },
+      "wrestler2": {
+        "name": "TBD"
+      },
+      "winnerMatch": 42,
+      "winnerSlot": "wrestler1",
+      "loserMatch": null,
+      "loserSlot": null
+    },
+    {
+      "matchId": 35,
+      "round": "ConsR1",
+      "wrestler1": {
+        "name": "TBD"
+      },
+      "wrestler2": {
+        "name": "TBD"
+      },
+      "winnerMatch": 43,
+      "winnerSlot": "wrestler1",
+      "loserMatch": null,
+      "loserSlot": null
+    },
+    {
+      "matchId": 36,
+      "round": "ConsR1",
+      "wrestler1": {
+        "name": "TBD"
+      },
+      "wrestler2": {
+        "name": "TBD"
+      },
+      "winnerMatch": 44,
+      "winnerSlot": "wrestler1",
+      "loserMatch": null,
+      "loserSlot": null
+    },
+    {
+      "matchId": 37,
+      "round": "ConsR1",
+      "wrestler1": {
+        "name": "TBD"
+      },
+      "wrestler2": {
+        "name": "TBD"
+      },
+      "winnerMatch": 45,
+      "winnerSlot": "wrestler1",
+      "loserMatch": null,
+      "loserSlot": null
+    },
+    {
+      "matchId": 38,
+      "round": "ConsR1",
+      "wrestler1": {
+        "name": "TBD"
+      },
+      "wrestler2": {
+        "name": "TBD"
+      },
+      "winnerMatch": 46,
+      "winnerSlot": "wrestler1",
+      "loserMatch": null,
+      "loserSlot": null
+    },
+    {
+      "matchId": 39,
+      "round": "ConsR1",
+      "wrestler1": {
+        "name": "TBD"
+      },
+      "wrestler2": {
+        "name": "TBD"
+      },
+      "winnerMatch": 47,
+      "winnerSlot": "wrestler1",
+      "loserMatch": null,
+      "loserSlot": null
+    },
+    {
+      "matchId": 40,
+      "round": "ConsR1",
+      "wrestler1": {
+        "name": "TBD"
+      },
+      "wrestler2": {
+        "name": "TBD"
+      },
+      "winnerMatch": 48,
+      "winnerSlot": "wrestler1",
+      "loserMatch": null,
+      "loserSlot": null
+    },
+    {
+      "matchId": 41,
+      "round": "ConsR2",
+      "wrestler1": {
+        "name": "TBD"
+      },
+      "wrestler2": {
+        "name": "TBD"
+      },
+      "winnerMatch": 49,
+      "winnerSlot": "wrestler1",
+      "loserMatch": null,
+      "loserSlot": null
+    },
+    {
+      "matchId": 42,
+      "round": "ConsR2",
+      "wrestler1": {
+        "name": "TBD"
+      },
+      "wrestler2": {
+        "name": "TBD"
+      },
+      "winnerMatch": 49,
+      "winnerSlot": "wrestler2",
+      "loserMatch": null,
+      "loserSlot": null
+    },
+    {
+      "matchId": 43,
+      "round": "ConsR2",
+      "wrestler1": {
+        "name": "TBD"
+      },
+      "wrestler2": {
+        "name": "TBD"
+      },
+      "winnerMatch": 50,
+      "winnerSlot": "wrestler1",
+      "loserMatch": null,
+      "loserSlot": null
+    },
+    {
+      "matchId": 44,
+      "round": "ConsR2",
+      "wrestler1": {
+        "name": "TBD"
+      },
+      "wrestler2": {
+        "name": "TBD"
+      },
+      "winnerMatch": 50,
+      "winnerSlot": "wrestler2",
+      "loserMatch": null,
+      "loserSlot": null
+    },
+    {
+      "matchId": 45,
+      "round": "ConsR2",
+      "wrestler1": {
+        "name": "TBD"
+      },
+      "wrestler2": {
+        "name": "TBD"
+      },
+      "winnerMatch": 51,
+      "winnerSlot": "wrestler1",
+      "loserMatch": null,
+      "loserSlot": null
+    },
+    {
+      "matchId": 46,
+      "round": "ConsR2",
+      "wrestler1": {
+        "name": "TBD"
+      },
+      "wrestler2": {
+        "name": "TBD"
+      },
+      "winnerMatch": 51,
+      "winnerSlot": "wrestler2",
+      "loserMatch": null,
+      "loserSlot": null
+    },
+    {
+      "matchId": 47,
+      "round": "ConsR2",
+      "wrestler1": {
+        "name": "TBD"
+      },
+      "wrestler2": {
+        "name": "TBD"
+      },
+      "winnerMatch": 52,
+      "winnerSlot": "wrestler1",
+      "loserMatch": null,
+      "loserSlot": null
+    },
+    {
+      "matchId": 48,
+      "round": "ConsR2",
+      "wrestler1": {
+        "name": "TBD"
+      },
+      "wrestler2": {
+        "name": "TBD"
+      },
+      "winnerMatch": 52,
+      "winnerSlot": "wrestler2",
+      "loserMatch": null,
+      "loserSlot": null
+    },
+    {
+      "matchId": 49,
+      "round": "ConsR3",
+      "wrestler1": {
+        "name": "TBD"
+      },
+      "wrestler2": {
+        "name": "TBD"
+      },
+      "winnerMatch": 53,
+      "winnerSlot": "wrestler1",
+      "loserMatch": null,
+      "loserSlot": null
+    },
+    {
+      "matchId": 50,
+      "round": "ConsR3",
+      "wrestler1": {
+        "name": "TBD"
+      },
+      "wrestler2": {
+        "name": "TBD"
+      },
+      "winnerMatch": 54,
+      "winnerSlot": "wrestler1",
+      "loserMatch": null,
+      "loserSlot": null
+    },
+    {
+      "matchId": 51,
+      "round": "ConsR3",
+      "wrestler1": {
+        "name": "TBD"
+      },
+      "wrestler2": {
+        "name": "TBD"
+      },
+      "winnerMatch": 55,
+      "winnerSlot": "wrestler1",
+      "loserMatch": null,
+      "loserSlot": null
+    },
+    {
+      "matchId": 52,
+      "round": "ConsR3",
+      "wrestler1": {
+        "name": "TBD"
+      },
+      "wrestler2": {
+        "name": "TBD"
+      },
+      "winnerMatch": 56,
+      "winnerSlot": "wrestler1",
+      "loserMatch": null,
+      "loserSlot": null
+    },
+    {
+      "matchId": 53,
+      "round": "ConsR4",
+      "wrestler1": {
+        "name": "TBD"
+      },
+      "wrestler2": {
+        "name": "TBD"
+      },
+      "winnerMatch": 57,
+      "winnerSlot": "wrestler1",
+      "loserMatch": null,
+      "loserSlot": null
+    },
+    {
+      "matchId": 54,
+      "round": "ConsR4",
+      "wrestler1": {
+        "name": "TBD"
+      },
+      "wrestler2": {
+        "name": "TBD"
+      },
+      "winnerMatch": 57,
+      "winnerSlot": "wrestler2",
+      "loserMatch": null,
+      "loserSlot": null
+    },
+    {
+      "matchId": 55,
+      "round": "ConsR4",
+      "wrestler1": {
+        "name": "TBD"
+      },
+      "wrestler2": {
+        "name": "TBD"
+      },
+      "winnerMatch": 58,
+      "winnerSlot": "wrestler1",
+      "loserMatch": null,
+      "loserSlot": null
+    },
+    {
+      "matchId": 56,
+      "round": "ConsR4",
+      "wrestler1": {
+        "name": "TBD"
+      },
+      "wrestler2": {
+        "name": "TBD"
+      },
+      "winnerMatch": 58,
+      "winnerSlot": "wrestler2",
+      "loserMatch": null,
+      "loserSlot": null
+    },
+    {
+      "matchId": 57,
+      "round": "ConsQTR",
+      "wrestler1": {
+        "name": "TBD"
+      },
+      "wrestler2": {
+        "name": "TBD"
+      },
+      "winnerMatch": 59,
+      "winnerSlot": "wrestler1",
+      "loserMatch": 61,
+      "loserSlot": "wrestler1"
+    },
+    {
+      "matchId": 58,
+      "round": "ConsQTR",
+      "wrestler1": {
+        "name": "TBD"
+      },
+      "wrestler2": {
+        "name": "TBD"
+      },
+      "winnerMatch": 60,
+      "winnerSlot": "wrestler1",
+      "loserMatch": 61,
+      "loserSlot": "wrestler2"
+    },
+    {
+      "matchId": 59,
+      "round": "ConsSEMI",
+      "wrestler1": {
+        "name": "TBD"
+      },
+      "wrestler2": {
+        "name": "TBD"
+      },
+      "winnerMatch": 63,
+      "winnerSlot": "wrestler1",
+      "loserMatch": 62,
+      "loserSlot": "wrestler1"
+    },
+    {
+      "matchId": 60,
+      "round": "ConsSEMI",
+      "wrestler1": {
+        "name": "TBD"
+      },
+      "wrestler2": {
+        "name": "TBD"
+      },
+      "winnerMatch": 63,
+      "winnerSlot": "wrestler2",
+      "loserMatch": 62,
+      "loserSlot": "wrestler2"
+    },
+    {
+      "matchId": 61,
+      "round": "7th",
+      "wrestler1": {
+        "name": "TBD"
+      },
+      "wrestler2": {
+        "name": "TBD"
+      },
+      "winnerMatch": null,
+      "winnerSlot": null,
+      "loserMatch": null,
+      "loserSlot": null
+    },
+    {
+      "matchId": 62,
+      "round": "5th",
+      "wrestler1": {
+        "name": "TBD"
+      },
+      "wrestler2": {
+        "name": "TBD"
+      },
+      "winnerMatch": null,
+      "winnerSlot": null,
+      "loserMatch": null,
+      "loserSlot": null
+    },
+    {
+      "matchId": 63,
+      "round": "3rd",
+      "wrestler1": {
+        "name": "TBD"
+      },
+      "wrestler2": {
+        "name": "TBD"
+      },
+      "winnerMatch": null,
+      "winnerSlot": null,
+      "loserMatch": null,
+      "loserSlot": null
+    }
+  ]
+}
