@@ -1,4 +1,33 @@
 
+const ACCESS_KEY = "WRESTLE2025";
+const ACCESS_STORAGE_KEY = "bracketAppAccess";
+
+function validateAccessCode() {
+  const input = document.getElementById("accessCodeInput").value.trim();
+  if (input === ACCESS_KEY) {
+    localStorage.setItem(ACCESS_STORAGE_KEY, "true");
+    document.getElementById("accessModal").style.display = "none";
+    window.bracketLocked = false;
+  } else {
+    document.getElementById("accessError").style.display = "block";
+  }
+}
+
+function checkAccess() {
+  const hasAccess = localStorage.getItem(ACCESS_STORAGE_KEY) === "true";
+  if (!hasAccess) {
+    document.getElementById("accessModal").style.display = "flex";
+    window.bracketLocked = true;
+  } else {
+    window.bracketLocked = false;
+    document.getElementById("accessModal").style.display = "none";
+  }
+}
+
+window.addEventListener("DOMContentLoaded", checkAccess);
+
+
+
 document.addEventListener("DOMContentLoaded", function () {
   const bracketGrid = document.getElementById("bracketGrid");
   const bracketTitle = document.getElementById("bracketTitle");

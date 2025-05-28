@@ -34,5 +34,17 @@
 
   <script src="html2pdf.bundle.min.js"></script>
   <script src="app.js"></script>
+
+<!-- Access Lock Modal -->
+<div id="accessModal" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#000a;display:flex;align-items:center;justify-content:center;z-index:9999;">
+  <div style="background:#fff;padding:2rem;border-radius:10px;text-align:center">
+    <h2>Enter Access Code</h2>
+    <input id="accessCodeInput" type="text" placeholder="Access Code" style="padding:0.5rem;margin-top:1rem;width:200px;" />
+    <br><br>
+    <button onclick="validateAccessCode()" style="padding:0.5rem 1rem;">Submit</button>
+    <p id="accessError" style="color:red;display:none;margin-top:1rem;">Invalid Code</p>
+  </div>
+</div>
+
 </body>
 </html>
