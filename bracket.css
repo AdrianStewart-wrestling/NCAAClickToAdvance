@@ -1,0 +1,40 @@
+
+body {
+  font-family: Arial, sans-serif;
+}
+.title {
+  text-align: center;
+}
+.bracket-grid {
+  position: relative;
+  width: 1400px;
+  height: 1800px;
+  margin: auto;
+  border: 1px solid #ccc;
+}
+.match {
+  position: absolute;
+  background: #f9f9f9;
+  width: 140px;
+  padding: 3px 6px;
+  font-size: 11px;
+  border: 1px solid #999;
+  box-shadow: 1px 1px 2px #aaa;
+}
+.match .wrestler {
+  margin-bottom: 2px;
+}
+.match.prelim {
+  border-style: dashed;
+  background: #fffbe6;
+}
+.match.placement {
+  background: #e6f4ff;
+  border-color: #0077cc;
+}
+
+.label {
+  position: absolute;
+  font-weight: bold;
+  font-size: 12px;
+}
