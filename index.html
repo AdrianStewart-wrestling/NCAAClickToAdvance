@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"/>
   <title>NCAA Wrestling Bracket Viewer</title>
-  <link href="bracket.css" rel="stylesheet"/>
+  <link href="./style.css" rel="stylesheet"/>
 </head>
 <body>
   <div id="weightSelector" style="text-align:center; margin: 12px 0;">
@@ -23,15 +23,15 @@
   <div class="bracket-grid" id="bracketGrid"></div>
 
 <!-- PWA Setup -->
-<link rel="manifest" href="manifest.json" />
+<link rel="manifest" href="./manifest.json" />
 <script>
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js');
+    navigator.serviceWorker.register('./service-worker.js');
   }
 </script>
 
 
-  <script src="html2pdf.bundle.min.js"></script>
-  <script src="app.js"></script>
+  <script src="./html2pdf.bundle.min.js"></script>
+  <script src="./app.js"></script>
 </body>
 </html>
