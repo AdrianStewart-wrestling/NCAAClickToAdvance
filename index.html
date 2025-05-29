@@ -2,12 +2,27 @@
 <html>
 <head>
   <meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NCAA Wrestling Bracket Viewer</title>
   <link href="style.css" rel="stylesheet"/>
   <link href="bracket.css" rel="stylesheet"/>
+  <style>
+    @media print {
+      #bracketGrid {
+        width: 16.8in;
+        height: 10.5in;
+        overflow: hidden;
+      }
+      .match {
+        break-inside: avoid;
+      }
+    }
+  </style>
 </head>
 <body>
   <div id="weightSelector" style="text-align:center; margin: 12px 0;">
+<button onclick="debugAAUpdate()" style='position:fixed;bottom:10px;right:10px;z-index:9999'>SHOW AA</button>
+
     <button data-weight="125">125</button>
     <button data-weight="133">133</button>
     <button data-weight="141">141</button>
@@ -18,33 +33,94 @@
     <button data-weight="184">184</button>
     <button data-weight="197">197</button>
     <button data-weight="285">285</button>
+    <button onclick="exportBracketPDF()" style="margin-left: 12px;">Export PDF</button>
   </div>
 
   <h1 class="title" id="bracketTitle">125 lb NCAA Bracket - Full View</h1>
+  <div id="pdfWrapper" style="position: relative; width: 100%;">
   <div class="bracket-grid" id="bracketGrid"></div>
 
-<!-- PWA Setup -->
-<link rel="manifest" href="./manifest.json" />
-<script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('./service-worker.js');
+  <div id="allAmericanBox" style="
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    background: #fff;
+    border: 2px solid #333;
+    border-radius: 8px;
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    font-family: sans-serif;
+    display: none;
+    z-index: 1000;">
+    <h3 id="aaTitle">NCAA All-Americans</h3>
+    <ol id="aaList" style="margin: 0; padding-left: 1.2rem;">
+      <li>1st - TBD</li>
+      <li>2nd - TBD</li>
+      <li>3rd - TBD</li>
+      <li>4th - TBD</li>
+      <li>5th - TBD</li>
+      <li>6th - TBD</li>
+      <li>7th - TBD</li>
+      <li>8th - TBD</li>
+    </ol>
+  </div>
+</div>
+
+
+  <!-- PWA Setup -->
+  <link rel="manifest" href="./manifest.json" />
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./service-worker.js');
+    }
+  </script>
+
+  <script src="html2pdf.bundle.min.js"></script>
+  <script src="app.js"></script>
+  <script>
+  function exportBracketPDF() {
+    const pdfWrapper = document.getElementById('pdfWrapper');
+    const aaBox = document.getElementById('allAmericanBox');
+
+    // Ensure AA box is visible during export
+    const wasHidden = aaBox.style.display === 'none';
+    if (wasHidden) aaBox.style.display = 'block';
+
+    // Scale wrapper for export layout
+    pdfWrapper.style.width = '16.8in';
+    pdfWrapper.style.height = '10.5in';
+    pdfWrapper.style.transform = 'scale(0.9)';
+    pdfWrapper.style.transformOrigin = 'top left';
+
+    const opt = {
+      margin: [0, 0, 0, 0],
+      filename: document.getElementById('bracketTitle').innerText.replace(/ /g, '_') + '.pdf',
+      image: { type: 'jpeg', quality: 0.95 },
+      html2canvas: { scale: 2, useCORS: true, allowTaint: true, scrollY: 0 },
+      jsPDF: { unit: 'in', format: [17, 11], orientation: 'landscape' }
+    };
+
+    html2pdf().set(opt).from(pdfWrapper).save().then(() => {
+      // Restore original styles
+      pdfWrapper.style.transform = '';
+      pdfWrapper.style.transformOrigin = '';
+      pdfWrapper.style.width = '';
+      pdfWrapper.style.height = '';
+      if (wasHidden) aaBox.style.display = 'none';
+    });
   }
 </script>
 
 
-  <script src="html2pdf.bundle.min.js"></script>
-  <script src="app.js"></script>
-
-<!-- Access Lock Modal -->
-<div id="accessModal" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#000a;display:flex;align-items:center;justify-content:center;z-index:9999;">
-  <div style="background:#fff;padding:2rem;border-radius:10px;text-align:center">
-    <h2>Enter Access Code</h2>
-    <input id="accessCodeInput" type="text" placeholder="Access Code" style="padding:0.5rem;margin-top:1rem;width:200px;" />
-    <br><br>
-    <button onclick="validateAccessCode()" style="padding:0.5rem 1rem;">Submit</button>
-    <p id="accessError" style="color:red;display:none;margin-top:1rem;">Invalid Code</p>
+  <!-- Access Lock Modal -->
+  <div id="accessModal" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#000a;display:flex;align-items:center;justify-content:center;z-index:9999;">
+    <div style="background:#fff;padding:2rem;border-radius:10px;text-align:center">
+      <h2>Enter Access Code</h2>
+      <input id="accessCodeInput" type="text" placeholder="Access Code" style="padding:0.5rem;margin-top:1rem;width:200px;" />
+      <br><br>
+      <button onclick="validateAccessCode()" style="padding:0.5rem 1rem;">Submit</button>
+      <p id="accessError" style="color:red;display:none;margin-top:1rem;">Invalid Code</p>
+    </div>
   </div>
-</div>
-
 </body>
 </html>
