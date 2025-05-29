@@ -84,21 +84,22 @@ hr { color: #f00; border: 0; background-color: #ccc; height: 1px; width: 88px; m
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 48px; /* 2 x 24px rows */
-    padding: 2px;
+    padding: 6px;
     background: #f9f9f9;
     border: 1px solid #ccc;
     border-radius: 6px;
-    margin: 2px 0;
+    margin: 10px 0;
     min-width: 140px;
     box-sizing: border-box;
+    min-height: 60px; /* ensures enough vertical space */
+    height: auto;     /* let it grow if needed */
   }
-  
   .wrestler {
     font-size: 12px;
     padding: 2px 4px;
     white-space: normal;
     overflow-wrap: break-word;
+    text-overflow: unset;
     flex: 1;
   }
   
