@@ -36,6 +36,9 @@ Once entered, access is stored via `localStorage`. This simulates how paid acces
 1. Clone or download this repository.
 2. Open `index.html` in a browser (e.g., Chrome).
 3. Enter the access code to unlock bracket interaction.
+4. Click each wrestler to advance, loser drops.
+5. At the end of each weight, click SHOW AA button to populate AA Block
+6. Click Export PDF to save your bracket for each weight, you will lose your work if you go to the next weight!
 
 ## 📁 Folder Structure
 
