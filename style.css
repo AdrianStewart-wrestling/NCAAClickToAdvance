@@ -71,18 +71,37 @@ hr { color: #f00; border: 0; background-color: #ccc; height: 1px; width: 88px; m
     transform: scale(0.75);
     transform-origin: top left;
     padding-bottom: 100px;
+  }@media (max-width: 768px) {
+    #allAmericanBox {
+      position: static !important;
+      margin: 20px auto;
+      width: 90%;
+      font-size: 14px;
+    }
   }
 
   .match {
-    font-size: 12px !important;
-    padding: 2px 4px !important;
-    width: 140px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 48px; /* 2 x 24px rows */
+    padding: 2px;
+    background: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin: 2px 0;
+    min-width: 140px;
+    box-sizing: border-box;
   }
-
+  
   .wrestler {
-    padding: 4px !important;
-    font-size: 12px !important;
+    font-size: 12px;
+    padding: 2px 4px;
+    white-space: normal;
+    overflow-wrap: break-word;
+    flex: 1;
   }
+  
 
   #weightSelector {
     display: flex;
@@ -107,3 +126,5 @@ hr { color: #f00; border: 0; background-color: #ccc; height: 1px; width: 88px; m
   }
 }
 /* --- MOBILE PATCH END --- */
+/* === MOBILE RESPONSIVE PATCH === */
+
