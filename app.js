@@ -25,16 +25,34 @@ function checkAccess() {
 
 window.addEventListener("DOMContentLoaded", checkAccess);
 
-
+function toggleAABox() {
+  const aaBox = document.getElementById('allAmericanBox');
+  if (aaBox.style.display === 'none' || aaBox.style.display === '') {
+    aaBox.style.display = 'block';
+  } else {
+    aaBox.style.display = 'none';
+  }
+}
 
 document.addEventListener("DOMContentLoaded", function () {
   const bracketGrid = document.getElementById("bracketGrid");
   const bracketTitle = document.getElementById("bracketTitle");
   const weightButtons = document.querySelectorAll("#weightSelector button");
+
+  // Create the toggle button
   const toggleButton = document.createElement('button');
   toggleButton.id = 'toggleAABox';
   toggleButton.innerText = 'Toggle All-American Box';
   toggleButton.onclick = toggleAABox;
+
+  // Insert the button before the bracket grid or at the top of the body
+  const pdfWrapper = document.getElementById('pdfWrapper');
+  if (pdfWrapper) {
+    pdfWrapper.parentNode.insertBefore(toggleButton, pdfWrapper);
+  } else {
+    document.body.insertBefore(toggleButton, document.body.firstChild);
+  }
+
 
 
   const matchPositions = {
