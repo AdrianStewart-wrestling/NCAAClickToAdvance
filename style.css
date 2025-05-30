@@ -1,125 +1,29 @@
 
-/* Mobile-Optimized CSS for NCAA Click to Advance */
-
-/* General Styles */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+@media print {
+  #bracketGrid {
+    width: 16.8in;
+    height: 10.5in;
+    overflow: hidden;
+  }
+  .match {
+    break-inside: avoid;
+  }
 }
 
-header {
-    text-align: center;
-    padding: 1rem;
-    background-color: #333;
+@media (max-width: 600px) {
+  #allAmericanBox {
+    position: static;
+    margin-top: 20px;
+    width: 100%;
+  }
+  #toggleAABox {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    background: #333;
     color: #fff;
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem;
-}
-
-h1, h2 {
-    font-size: 1.5rem;
-    margin: 0.5rem 0;
-}
-
-button {
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-    margin: 0.5rem;
     border: none;
-    background-color: #007bff;
-    color: #fff;
     border-radius: 5px;
     cursor: pointer;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-/* Responsive Layout */
-@media (max-width: 600px) {
-    h1, h2 {
-        font-size: 1.2rem;
-    }
-
-    button {
-        font-size: 0.9rem;
-        padding: 0.4rem 0.8rem;
-        margin: 0.3rem;
-    }
-
-    .container {
-        padding: 0.5rem;
-    }
-
-    #weightSelector {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    #bracketGrid {
-        width: 100%;
-        overflow-x: auto;
-    }
-
-    #allAmericanBox {
-        position: static;
-        margin-top: 1rem;
-        width: 100%;
-    }
-}
-
-/* Bracket Grid */
-#bracketGrid {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding: 1rem;
-    box-sizing: border-box;
-}
-
-.bracket-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-}
-
-.match {
-    margin: 0.5rem;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-}
-
-/* All-American Box */
-#allAmericanBox {
-    background: #fff;
-    border: 2px solid #333;
-    border-radius: 8px;
-    padding: 10px 20px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    font-family: sans-serif;
-    display: none;
-    z-index: 1000;
-}
-
-#allAmericanBox h3 {
-    margin: 0;
-    font-size: 1.2rem;
-}
-
-#allAmericanBox ol {
-    margin: 0;
-    padding-left: 1.2rem;
+  }
 }
