@@ -31,6 +31,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const bracketGrid = document.getElementById("bracketGrid");
   const bracketTitle = document.getElementById("bracketTitle");
   const weightButtons = document.querySelectorAll("#weightSelector button");
+  const toggleButton = document.createElement('button');
+  toggleButton.id = 'toggleAABox';
+  toggleButton.innerText = 'Toggle All-American Box';
+  toggleButton.onclick = toggleAABox;
+
 
   const matchPositions = {
   "0": {
@@ -302,7 +307,14 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
-
+function toggleAABox() {
+  const aaBox = document.getElementById('allAmericanBox');
+  if (aaBox.style.display === 'none' || aaBox.style.display === '') {
+    aaBox.style.display = 'block';
+  } else {
+    aaBox.style.display = 'none';
+  }
+}
   let selectedWrestler = null;
 
   function renderBrackets(data) {
