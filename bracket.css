@@ -38,3 +38,34 @@ body {
   font-weight: bold;
   font-size: 12px;
 }
+.allAmericanBlock {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  width: 220px;
+  background: #fff;
+  border: 2px solid #000;
+  box-shadow: 4px 4px 10px rgba(0,0,0,0.1);
+  padding: 1rem;
+  border-radius: 8px;
+  font-family: sans-serif;
+  z-index: 100;
+}
+
+.aaTitle {
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.aaList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.aaList li {
+  padding: 4px 0;
+  border-bottom: 1px dashed #ccc;
+}
+
