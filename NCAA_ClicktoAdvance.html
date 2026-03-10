@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026 NCAA Division I Wrestling Championships</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;500;600;700&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#f0f2f5; --s1:#ffffff; --s2:#f8f9fb; --s3:#eef0f4;
+  --b1:#dde1e9; --b2:#c8cdd8; --b3:#b0b8c6;
+  --gold:#b8860b; --gold2:#d4a017; --gold-bg:rgba(184,134,11,.09);
+  --green:#16a34a; --green-bg:rgba(22,163,74,.09); --green-b:rgba(22,163,74,.35);
+  --red:#dc2626; --red-bg:rgba(220,38,38,.06);
+  --orange:#c2410c; --orange-bg:rgba(194,65,12,.07); --orange-b:rgba(194,65,12,.3);
+  --blue:#2563eb;
+  --t1:#1a2233; --t2:#4a5568; --t3:#8896aa;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden}
+body{font-family:'Barlow',sans-serif;background:var(--bg);color:var(--t1);display:flex;flex-direction:column;height:100vh}
+
+/* HEADER */
+.hdr{background:linear-gradient(90deg,#1a1f2e,#2c2408,#1a1f2e);border-bottom:2px solid var(--gold);height:52px;display:flex;align-items:center;gap:14px;padding:0 18px;flex-shrink:0;box-shadow:0 2px 16px rgba(201,168,76,.15)}
+.hdr-hex{width:32px;height:32px;background:var(--gold);clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.hdr-t{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:3px;color:var(--gold2);line-height:1}
+.hdr-s{font-size:9px;color:rgba(255,255,255,.45);letter-spacing:2px;text-transform:uppercase;margin-top:1px}
+.hdr-sp{flex:1}
+.rst-btn{background:none;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.6);font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:1px;padding:5px 14px;cursor:pointer;border-radius:3px;transition:all .2s;text-transform:uppercase}
+.rst-btn:hover{border-color:var(--gold2);color:var(--gold2)}
+
+/* WEIGHT TABS */
+.wtabs{background:var(--s1);border-bottom:2px solid var(--b1);display:flex;padding:0 14px;gap:1px;overflow-x:auto;scrollbar-width:none;flex-shrink:0;height:42px;align-items:stretch;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.wtabs::-webkit-scrollbar{display:none}
+.wtab{display:flex;align-items:center;padding:0 14px;cursor:pointer;border:none;background:none;color:var(--t3);font-family:'Bebas Neue',sans-serif;font-size:19px;letter-spacing:1px;border-bottom:2px solid transparent;transition:all .15s;white-space:nowrap}
+.wtab:hover{color:var(--t2)}
+.wtab.on{color:var(--gold);border-bottom-color:var(--gold)}
+
+/* MAIN SCROLL AREA */
+.area{flex:1;overflow:auto;padding:14px 18px 24px;display:flex;flex-direction:column;gap:0}
+.area::-webkit-scrollbar{width:6px;height:6px}
+.area::-webkit-scrollbar-track{background:var(--bg)}
+.area::-webkit-scrollbar-thumb{background:var(--b2);border-radius:3px}
+
+/* TIP */
+.tip{display:flex;align-items:center;gap:8px;background:rgba(96,165,250,.08);border:1px solid rgba(96,165,250,.2);border-radius:3px;padding:6px 12px;margin-bottom:10px;font-size:11px;color:var(--blue);flex-shrink:0}
+.tip-dot{width:5px;height:5px;background:var(--blue);border-radius:50%;flex-shrink:0;animation:blink 1.6s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* SECTION LABEL */
+.sec-hd{display:flex;align-items:center;gap:10px;margin:14px 0 8px;flex-shrink:0}
+.sec-hd .line{flex:1;height:1px}
+.sec-hd .lbl{font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:3px;padding:0 8px;white-space:nowrap}
+.sec-champ .line{background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.sec-champ .lbl{color:var(--gold)}
+.sec-con .line{background:linear-gradient(90deg,transparent,var(--orange),transparent)}
+.sec-con .lbl{color:var(--orange)}
+
+/* BRACKET GRID */
+.bgrid{display:flex;gap:0;align-items:flex-start;min-width:max-content}
+.rcol{display:flex;flex-direction:column;min-width:0}
+.rhdr{font-family:'Barlow Condensed',sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--t3);text-align:center;padding:0 3px 6px;white-space:nowrap}
+.rhdr.gc{color:var(--gold)}
+.rhdr.cc{color:var(--orange);opacity:.9}
+.rconn{width:14px;flex-shrink:0}
+
+/* MATCH */
+.mc{background:var(--s1);border:1px solid var(--b1);border-radius:4px;overflow:hidden;width:168px;flex-shrink:0;transition:box-shadow .15s;box-shadow:0 1px 3px rgba(0,0,0,.07)}
+.mc:hover{box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.mc.cm{border-color:var(--gold);box-shadow:0 0 10px rgba(184,134,11,.2)}
+.mc.con{border-color:var(--orange-b)}
+.mc.pm{border-color:rgba(205,127,50,.5)}
+.md{height:1px;background:var(--b1)}
+
+/* SLOTS */
+.sl{display:flex;align-items:center;padding:4px 7px;min-height:30px;cursor:pointer;transition:background .12s;position:relative;user-select:none;gap:0}
+.sl:hover:not(.empty):not(.w):not(.l){background:var(--s3)}
+.sl.w{background:var(--green);border-left:3px solid #0f7a30}
+.sl.l{background:var(--red-bg);opacity:.6}
+.sl.empty{cursor:default;opacity:.35}
+.sl.empty:hover{background:none}
+.sl-sd{font-size:8px;color:var(--t3);width:13px;flex-shrink:0;font-family:'Barlow Condensed',sans-serif;font-weight:600;text-align:right;padding-right:2px}
+.sl.w .sl-sd{color:rgba(255,255,255,.8)}
+.sl-nm{flex:1;font-size:10.5px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:0 3px}
+.sl-nm .fn{font-weight:400;color:var(--t2)}
+.sl.w .sl-nm{color:#fff}
+.sl.w .sl-nm .fn{color:rgba(255,255,255,.7)}
+.sl.l .sl-nm{text-decoration:line-through;text-decoration-color:rgba(239,68,68,.4);color:var(--t3)}
+.sl-sc{font-size:8px;color:var(--t3);flex-shrink:0;font-family:'Barlow Condensed',sans-serif;white-space:nowrap;max-width:46px;overflow:hidden;text-overflow:ellipsis}
+.sl.w .sl-sc{color:rgba(255,255,255,.7);opacity:1}
+.sl-tbd{font-size:9px;color:var(--t3);font-style:italic;padding:0 3px}
+
+/* win flash */
+.sl.w{animation:wflash .35s ease}
+@keyframes wflash{0%{background:#4ade80}100%{background:var(--green)}}
+
+/* CHAMP BOX */
+.cbox{display:flex;align-items:center;padding:0 14px}
+.ccard{background:linear-gradient(135deg,#fffbf0,#fdf6e3,#fffbf0);border:2px solid var(--gold);border-radius:5px;padding:14px 16px;text-align:center;min-width:152px;box-shadow:0 0 16px rgba(184,134,11,.18)}
+.ccard .crn{font-size:22px;margin-bottom:5px}
+.ccard .clbl{font-size:7px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:3px}
+.ccard .cnm{font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:2px;color:var(--t1)}
+.ccard .csc{font-size:9px;color:var(--gold);opacity:.8;margin-top:1px}
+.ccard.empty .cnm{font-size:11px;color:var(--t3);font-family:'Barlow',sans-serif;letter-spacing:0;font-style:italic}
+
+/* PIGTAIL */
+.mc.pt{border-color:rgba(201,168,76,.5);box-shadow:0 0 8px rgba(201,168,76,.1)}
+.mc.pt-pending{border-color:rgba(201,168,76,.25);border-style:dashed}
+
+/* PLACE LABELS */
+.pl-lbl{font-size:8px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:3px;font-family:'Barlow Condensed',sans-serif;color:var(--t3)}
+
+/* SWAP HINT — shown on loser slot hover */
+.swap-hint{
+  display:none; font-size:8px; color:var(--red); opacity:.8;
+  font-family:'Barlow Condensed',sans-serif; letter-spacing:.5px;
+  margin-left:3px; flex-shrink:0; white-space:nowrap;
+}
+.sl.l:hover .swap-hint{ display:inline; }
+
+.prt-btn{border-color:var(--gold);color:var(--gold);margin-left:6px}
+.prt-btn:hover{background:var(--gold);color:#000}
+
+/* ════════════════════════════════════════════════
+   PRINT MODAL (shown on screen before printing)
+   ════════════════════════════════════════════════ */
+#print-modal {
+  display:none; position:fixed; inset:0; z-index:9999;
+  background:rgba(0,0,0,.85); align-items:center; justify-content:center;
+}
+#print-modal.open { display:flex; }
+#print-modal-box {
+  background:#ffffff; border:1px solid var(--gold);
+  border-radius:6px; padding:28px 32px; max-width:420px; width:90%;
+  text-align:center; box-shadow:0 8px 32px rgba(0,0,0,.15);
+}
+#print-modal-box h2 { font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:3px; color:var(--gold); margin-bottom:8px; }
+#print-modal-box p  { font-size:12px; color:var(--t2); margin-bottom:20px; line-height:1.6; }
+.pm-row { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-bottom:14px; }
+.pm-btn {
+  background:none; border:1px solid var(--b2); color:var(--t2);
+  font-family:'Barlow Condensed',sans-serif; font-size:12px; letter-spacing:1px;
+  padding:7px 18px; cursor:pointer; border-radius:3px; transition:all .2s; text-transform:uppercase;
+}
+.pm-btn:hover { border-color:var(--gold); color:var(--gold); }
+.pm-btn.primary { background:var(--gold); color:#fff; border-color:var(--gold); font-weight:700; }
+.pm-btn.primary:hover { background:var(--gold2); }
+.pm-weight-grid { display:flex; flex-wrap:wrap; gap:6px; justify-content:center; margin-bottom:18px; }
+.pm-wchk { display:flex; align-items:center; gap:5px; cursor:pointer; }
+.pm-wchk input { accent-color:var(--gold); width:13px; height:13px; cursor:pointer; }
+.pm-wchk span { font-family:'Bebas Neue',sans-serif; font-size:16px; color:var(--t2); }
+.pm-wchk:hover span { color:var(--gold); }
+
+/* ════════════════════════════════════════════════
+   PRINT STYLES  —  1 landscape page per weight
+   ════════════════════════════════════════════════ */
+@media print {
+  @page { size: landscape; margin:5mm 6mm; }
+  * { -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; }
+  html,body { height:auto !important; overflow:visible !important; background:#fff !important; color:#000 !important; }
+  .hdr,.wtabs,#area,#print-modal { display:none !important; }
+  #print-root { display:block !important; }
+
+  .print-page {
+    break-after: page;
+    break-inside: avoid;
+    width:267mm;
+    height:182mm;
+    overflow:hidden;
+    background:#fff; color:#000;
+    font-family:Arial,Helvetica,sans-serif;
+    position:relative;
+    display:flex;
+    flex-direction:column;
+  }
+  .print-page:last-child { break-after: avoid; }
+
+  /* psw: the inner content wrapper — scale to fit via JS */
+  .psw {
+    position:absolute; top:0; left:0;
+    transform-origin:top left;
+  }
+
+  /* ── Page header ── */
+  .ph { display:flex; align-items:center; justify-content:space-between;
+        border-bottom:2.5px solid #111; padding-bottom:2px; margin-bottom:3px; }
+  .ph-title { font-size:10pt; font-weight:900; letter-spacing:1.5px; text-transform:uppercase; line-height:1; }
+  .ph-sub   { font-size:5.5pt; color:#666; text-transform:uppercase; letter-spacing:1px; margin-top:1px; }
+  .ph-wt    { font-size:26pt; font-weight:900; line-height:1; }
+  .ph-right { text-align:right; min-width:90px; }
+  .ph-clbl  { font-size:5pt; text-transform:uppercase; letter-spacing:2px; color:#888; }
+  .ph-cnm   { font-size:9pt; font-weight:900; line-height:1.2; }
+  .ph-csc   { font-size:5.5pt; color:#555; }
+
+  /* ── Section labels ── */
+  .ps-lbl { font-size:5pt; text-transform:uppercase; letter-spacing:2px; color:#999;
+            border-top:1px solid #e0e0e0; padding-top:1.5px; margin:2px 0; }
+
+  /* ── Bracket grid ── */
+  .pbg  { display:flex; align-items:flex-start; gap:0; }
+  .prc  { display:flex; flex-direction:column; }
+  .prh  { font-size:4.5pt; text-transform:uppercase; letter-spacing:1px; color:#aaa;
+          text-align:center; padding:0 2px 2px; white-space:nowrap; }
+  .prcn { width:7px; flex-shrink:0; }
+
+  /* ── Match cards ── */
+  .pm   { border:1px solid #ccc; border-radius:1px; overflow:hidden; width:100px; flex-shrink:0; background:#fff; }
+  .pm.champ-final { border:2px solid #111; }
+  .pm.pigtail     { border:1px dashed #bbb; }
+  .pm.consolation { border-color:#bbb; background:#fafafa; }
+  .pm.place-match { border:1.5px solid #666; }
+  .pmd  { height:1px; background:#ddd; }
+
+  /* ── Wrestler slots ── */
+  .ps   { display:flex; align-items:center; padding:1px 3px; min-height:13px; }
+  .ps.win  { background:#e8f5e9; border-left:2.5px solid #2e7d32; }
+  .ps.los  { opacity:0.4; }
+  .ps.tbd  { opacity:0.2; }
+  .psseed  { font-size:4.5pt; color:#bbb; width:8px; flex-shrink:0; text-align:right; padding-right:1px; }
+  .ps.win .psseed { color:#2e7d32; }
+  .psname  { flex:1; font-size:5pt; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; padding:0 2px; font-weight:500; }
+  .ps.win .psname  { font-weight:700; color:#1b5e20; }
+  .ps.los .psname  { text-decoration:line-through; color:#bbb; }
+  .pssch   { font-size:4pt; color:#bbb; flex-shrink:0; max-width:26px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .pstbd   { font-size:4.5pt; color:#ccc; font-style:italic; }
+
+  /* ── Champion box ── */
+  .pchbox { display:flex; align-items:center; padding:0 4px; }
+  .pchcard { border:2px solid #111; border-radius:2px; padding:3px 5px; text-align:center; min-width:60px; background:#fffdf5; }
+  .pchcard .pcrown { font-size:10pt; margin-bottom:1px; line-height:1; }
+  .pchcard .pclbl  { font-size:4pt; text-transform:uppercase; letter-spacing:2px; color:#888; }
+  .pchcard .pcnm   { font-size:6.5pt; font-weight:900; text-transform:uppercase; line-height:1.3; }
+  .pchcard .pcsc   { font-size:4.5pt; color:#555; }
+  .pchcard.empty .pcnm { color:#aaa; font-weight:400; }
+
+  /* ── Place labels ── */
+  .ppl-lbl { font-size:4pt; text-transform:uppercase; letter-spacing:1px; color:#888; margin-bottom:1px; }
+}
+
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="hdr-hex">🤼</div>
+  <div>
+    <div class="hdr-t">NCAA Wrestling Championships</div>
+    <div class="hdr-s">Division I · Cleveland, OH · March 19–21, 2026</div>
+  </div>
+  <div class="hdr-sp"></div>
+  <button class="rst-btn" onclick="resetBracket()">↺ Reset</button>
+  <button class="rst-btn prt-btn" onclick="printBracket()">🖨 Print PDF</button>
+</div>
+
+<div class="wtabs" id="wtabs"></div>
+
+<div class="area" id="area">
+  <div class="tip"><div class="tip-dot"></div>Click a wrestler's name to advance them — their opponent automatically drops to the consolation bracket below</div>
+  <div id="bkt"></div>
+</div>
+
+<!-- Print modal -->
+<div id="print-modal">
+  <div id="print-modal-box">
+    <h2>🖨 Print Brackets</h2>
+    <p>Select which weight classes to print.<br>Each prints as one landscape page.</p>
+    <div class="pm-weight-grid" id="pm-checks"></div>
+    <div class="pm-row">
+      <button class="pm-btn" onclick="pmSelectAll()">Select All</button>
+      <button class="pm-btn" onclick="pmSelectNone()">Clear</button>
+    </div>
+    <div class="pm-row">
+      <button class="pm-btn" onclick="closePrintModal()">Cancel</button>
+      <button class="pm-btn primary" onclick="doPrint()">Print Selected</button>
+    </div>
+  </div>
+</div>
+
+<!-- Print output — hidden on screen, rendered during print -->
+<div id="print-root" style="display:none"></div>
+
+<script>
+// ═══════════════════════════════════════════════════════════════════
+// 2024 NCAA DIVISION I WRESTLING CHAMPIONSHIP DATA
+// 33 wrestlers per weight class.
+// Pigtail: seed 32 vs seed 33 → winner faces seed 1 in Round 1.
+// Standard 32-man bracket (after pigtail resolves):
+//   Top half:    1(pt) v 32, 16 v 17, 8 v 25, 9 v 24, 4 v 29, 13 v 20, 5 v 28, 12 v 21
+//   Bottom half: 2 v 31, 15 v 18, 7 v 26, 10 v 23, 3 v 30, 14 v 19, 6 v 27, 11 v 22
+// ═══════════════════════════════════════════════════════════════════
+
+const FIELDS = {
+  125: [
+   {n:"Braeden Davis",s:"Penn State"},        // 1
+{n:"Luke Stanich",s:"Lehigh"},        // 2
+{n:"Drake Ayala",s:"Iowa"},        // 3
+{n:"Matt Ramos",s:"Purdue"},        // 4
+{n:"Jore Volk",s:"Wyoming"},        // 5
+{n:"Troy Spratley",s:"Oklahoma State"},        // 6
+{n:"Jakob Camacho",s:"NC State"},        // 7
+{n:"Richie Figueroa",s:"Arizona State"},        // 8
+{n:"Patrick McKee",s:"Minnesota"},        // 9
+{n:"Eric Barnett",s:"Wisconsin"},        // 10
+{n:"Cooper Flynn",s:"Virginia Tech"},        // 11
+{n:"Anthony Noto",s:"Lock Haven"},        // 12
+{n:"Noah Surtin",s:"Missouri"},        // 13
+{n:"Nico Provo",s:"Stanford"},        // 14
+{n:"Caleb Smith",s:"Nebraska"},        // 15
+{n:"Dean Peterson",s:"Rutgers"},        // 16
+{n:"Brett Ungar",s:"Cornell"},        // 17
+{n:"Michael DeAugustino",s:"Michigan"},        // 18
+{n:"Jett Strickenberger",s:"West Virginia"},        // 19
+{n:"Stevo Poulin",s:"Northern Colorado"},        // 20
+{n:"Brandon Kaylor",s:"Oregon State"},        // 21
+{n:"Brayden Palmer",s:"Chattanooga"},        // 22
+{n:"Tanner Jordan",s:"South Dakota State"},        // 23
+{n:"Kysen Terukina",s:"Iowa State"},        // 24
+{n:"Ethan Berginc",s:"Army West Point"},        // 25
+{n:"Blake West",s:"Northern Illinois"},        // 26
+{n:"Max Gallagher",s:"Penn"},        // 27
+{n:"Diego Sotelo",s:"Harvard"},        // 28
+{n:"Brendan McCrone",s:"Ohio State"},        // 29
+{n:"Elijah Griffin",s:"CBU"},        // 30
+{n:"Tyler Klinsky",s:"Rider"},        // 31
+{n:"Mikey Joyce",s:"Brown"},        // 32
+{n:"Tristan Lujan",s:"Michigan State"},        // 33 — pigtail
+  ],
+  133: [
+    {n:"Jax Forrest",s:"Oklahoma St."},        // 1
+    {n:"Vito Arujau",s:"Cornell"},           // 2
+    {n:"Jesse Mendez",s:"Oklahoma St."},     // 3
+    {n:"Brody Teske",s:"N. Iowa"},           // 4
+    {n:"Dylan Ragusin",s:"Illinois"},        // 5
+    {n:"Evan Frost",s:"Stanford"},           // 6
+    {n:"Kai Orine",s:"Michigan"},            // 7
+    {n:"Dylan Shawver",s:"Rutgers"},         // 8
+    {n:"Nasir Bailey",s:"Maryland"},         // 9
+    {n:"Marlon Yarbrough",s:"Ohio St."},     // 10
+    {n:"Julian Farber",s:"Penn St."},        // 11
+    {n:"Max Leete",s:"Old Dominion"},        // 12
+    {n:"Tyler Wells",s:"Princeton"},         // 13
+    {n:"Dominick Serrano",s:"Cal Poly"},     // 14
+    {n:"Sam Latona",s:"West Virginia"},      // 15
+    {n:"Dyson Dunham",s:"N. Carolina"},      // 16
+    {n:"Kurt Phipps",s:"Army"},              // 17
+    {n:"Zeth Romney",s:"Utah Valley"},       // 18
+    {n:"Aaron Nagao",s:"Mich. St."},         // 19
+    {n:"Julian Chlebove",s:"Va. Tech"},      // 20
+    {n:"Braden Basile",s:"Navy"},            // 21
+    {n:"Hunter Leake",s:"Virginia"},         // 22
+    {n:"Ethan Oakley",s:"Campbell"},         // 23
+    {n:"Jacob Van Dee",s:"NC State"},        // 24
+    {n:"Jace Koelzer",s:"Gardner-Webb"},     // 25
+    {n:"Dom Zaccone",s:"Duke"},              // 26
+    {n:"Gabe Strickland",s:"N. Iowa"},       // 27
+    {n:"Kade Moore",s:"N. Iowa"},            // 28
+    {n:"Michael Colaiocco",s:"Penn"},        // 29
+    {n:"Joshua Edmond",s:"Va. Tech"},        // 30
+    {n:"Caden Rooks",s:"Wyoming"},           // 31
+    {n:"Max Gallagher",s:"Ohio St."},        // 32
+    {n:"Michael Colaiocco",s:"Penn"},        // 33 — pigtail
+  ],
+  141: [
+    {n:"Beau Bartlett",s:"Penn St."},        // 1
+    {n:"Real Woods",s:"Iowa"},               // 2
+    {n:"Brock Hardy",s:"Arizona St."},       // 3
+    {n:"Wyatt Henson",s:"Iowa St."},         // 4
+    {n:"Cael Happel",s:"N. Iowa"},           // 5
+    {n:"Anthony Echemendia",s:"Iowa"},       // 6
+    {n:"Lachlan McNeil",s:"N. Carolina"},    // 7
+    {n:"Cole Matthews",s:"Pittsburgh"},      // 8
+    {n:"Dylan Chappell",s:"Michigan"},       // 9
+    {n:"Greyson Clark",s:"Michigan"},        // 10
+    {n:"Malyke Hines",s:"Edinboro"},         // 11
+    {n:"Cleveland Belton",s:"CSU Bak."},     // 12
+    {n:"Vince Cornella",s:"Stanford"},       // 13
+    {n:"Danny Pucino",s:"Lehigh"},           // 14
+    {n:"CJ Composto",s:"Penn St."},          // 15
+    {n:"Jordan Titus",s:"Bucknell"},         // 16
+    {n:"Tom Crook",s:"Illinois"},            // 17
+    {n:"Jesse Vasquez",s:"Arizona St."},     // 18
+    {n:"Jakob Camacho",s:"Lehigh"},          // 19
+    {n:"Mitch Moore",s:"Minnesota"},         // 20
+    {n:"Tagen Jamison",s:"Oklahoma St."},    // 21
+    {n:"Sergio Lemley",s:"Old Dominion"},    // 22
+    {n:"Josh Koderhandt",s:"Penn"},          // 23
+    {n:"Isaiah Powe",s:"App. State"},        // 24
+    {n:"Danny Fongaro",s:"Indiana"},         // 25
+    {n:"Vance Vombaur",s:"Ohio St."},        // 26
+    {n:"Ryan Jack",s:"NC State"},            // 27
+    {n:"Kal Miller",s:"N. Illinois"},        // 28
+    {n:"Jordan Hamdan",s:"Brown"},           // 29
+    {n:"Joshua Edmond",s:"Va. Tech"},        // 30
+    {n:"Ethan Berginc",s:"Campbell"},        // 31
+    {n:"Tyler Wells",s:"Princeton"},         // 32
+    {n:"Danny Fongaro",s:"Indiana"},         // 33 — pigtail
+  ],
+  149: [
+    {n:"Jaden Abas",s:"Stanford"},           // 1
+    {n:"Austin Gomez",s:"Wisconsin"},        // 2
+    {n:"Ethen Miller",s:"Iowa St."},         // 3
+    {n:"Casey Swiderski",s:"Mich. St."},     // 4
+    {n:"Jude Swisher",s:"Penn St."},         // 5
+    {n:"Alek Martin",s:"Oklahoma St."},      // 6
+    {n:"Willie McDougald",s:"Maryland"},     // 7
+    {n:"Finn Solomon",s:"N. Dakota St."},    // 8
+    {n:"Logan Gioffre",s:"Pittsburgh"},      // 9
+    {n:"Jack Crook",s:"Illinois"},           // 10
+    {n:"Michael Cetta",s:"Oklahoma"},        // 11
+    {n:"Gabe Willochell",s:"CSU Bak."},      // 12
+    {n:"Caleb Henson",s:"NC State"},         // 13
+    {n:"Caleb Tyus",s:"Illinois"},           // 14
+    {n:"Kyle Parco",s:"Arizona St."},        // 15
+    {n:"Levi Haines",s:"Penn St."},          // 16
+    {n:"Tyler Kasak",s:"Rider"},             // 17
+    {n:"Jordan Williams",s:"Va. Tech"},      // 18
+    {n:"Ethan Fernandez",s:"Bloomsburg"},    // 19
+    {n:"Ty Watters",s:"Iowa"},               // 20
+    {n:"Corbyn Munson",s:"Nebraska"},        // 21
+    {n:"Kelvin Griffin",s:"Indiana"},        // 22
+    {n:"Joseph Zargo",s:"Hofstra"},          // 23
+    {n:"Cody Bond",s:"N. Iowa"},             // 24
+    {n:"Graham Rooks",s:"Indiana"},          // 25
+    {n:"Jackson Arrington",s:"Ohio"},        // 26
+    {n:"Quinn Kinner",s:"Central Mich."},    // 27
+    {n:"Dylan D'Emilio",s:"Ohio St."},       // 28
+    {n:"Drew Roberts",s:"Army"},             // 29
+    {n:"Chance Lamer",s:"American"},         // 30
+    {n:"Jeffrey Boyd",s:"Cornell"},          // 31
+    {n:"Drew Roberts",s:"Army"},             // 32
+    {n:"Chance Lamer",s:"American"},         // 33 — pigtail
+  ],
+  157: [
+    {n:"Keegan O'Toole",s:"Missouri"},       // 1
+    {n:"Mitchell Mesenbrink",s:"Penn St."},  // 2
+    {n:"David Carr",s:"Iowa St."},           // 3
+    {n:"Antrell Taylor",s:"Oklahoma"},       // 4
+    {n:"Cameron Amine",s:"Michigan"},        // 5
+    {n:"Gunner Filipowicz",s:"Ohio St."},    // 6
+    {n:"Hunter Garvin",s:"Iowa"},            // 7
+    {n:"Tyler Lillard",s:"Ohio St."},        // 8
+    {n:"Jack Thomsen",s:"N. Iowa"},          // 9
+    {n:"Maxx Mayfield",s:"Oklahoma St."},    // 10
+    {n:"Garrett Thompson",s:"Harvard"},      // 11
+    {n:"Joseph Bianchi",s:"Purdue"},         // 12
+    {n:"Noah Mulvaney",s:"Penn St."},        // 13
+    {n:"Stoney Buell",s:"Buffalo"},          // 14
+    {n:"Nick Hamilton",s:"Arizona St."},     // 15
+    {n:"Jake Logan",s:"Binghamton"},         // 16
+    {n:"Julian Ramirez",s:"Cal Poly"},       // 17
+    {n:"Dean Hamiti",s:"Wisconsin"},         // 18
+    {n:"Peyton Hall",s:"Oklahoma St."},      // 19
+    {n:"Will Miller",s:"Virginia"},          // 20
+    {n:"Holden Heller",s:"Ohio"},            // 21
+    {n:"Chris Moore",s:"Rutgers"},           // 22
+    {n:"Caleb Fish",s:"NC State"},           // 23
+    {n:"Mike Caliendo",s:"Lehigh"},          // 24
+    {n:"Andrew Cerniglia",s:"Duke"},         // 25
+    {n:"Giano Petrucelli",s:"Pittsburgh"},   // 26
+    {n:"Evan Maag",s:"N. Iowa"},             // 27
+    {n:"Izzak Olejnik",s:"N. Illinois"},     // 28
+    {n:"Connor Brady",s:"Penn"},             // 29
+    {n:"Brevin Cassella",s:"Army"},          // 30
+    {n:"Derek Fields",s:"Indiana"},          // 31
+    {n:"Holden Heller",s:"Ohio"},            // 32
+    {n:"Will Miller",s:"Virginia"},          // 33 — pigtail
+  ],
+  165: [
+    {n:"Mekhi Lewis",s:"Va. Tech"},          // 1
+    {n:"Shane Griffith",s:"Stanford"},       // 2
+    {n:"Adam Kemp",s:"Arizona St."},         // 3
+    {n:"Carter Starocci",s:"Penn St."},      // 4
+    {n:"Patrick Kennedy",s:"Penn St."},      // 5
+    {n:"Alex Cramer",s:"Cornell"},           // 6
+    {n:"Brayden Thompson",s:"Iowa St."},     // 7
+    {n:"Max Maylor",s:"Purdue"},             // 8
+    {n:"Tyler Eischens",s:"Iowa St."},       // 9
+    {n:"Benny Baker",s:"Purdue"},            // 10
+    {n:"Nick Incontrera",s:"Bloomsburg"},    // 11
+    {n:"Gaven Sax",s:"Kent St."},            // 12
+    {n:"Jared Simma",s:"Iowa"},              // 13
+    {n:"Andrew Sparks",s:"Lock Haven"},      // 14
+    {n:"Danny Wask",s:"Northwestern"},       // 15
+    {n:"Peyton Mocco",s:"Oklahoma St."},     // 16
+    {n:"Edmond Ruth",s:"Oklahoma St."},      // 17
+    {n:"Rocco Welsh",s:"Pittsburgh"},        // 18
+    {n:"Jackson Turley",s:"NC State"},       // 19
+    {n:"Philip Conigliaro",s:"Lehigh"},      // 20
+    {n:"Luca Augustine",s:"Iowa"},           // 21
+    {n:"Alex Faison",s:"N. Carolina"},       // 22
+    {n:"Austin Murphy",s:"Edinboro"},        // 23
+    {n:"Brody Conley",s:"Campbell"},         // 24
+    {n:"MJ Gaitan",s:"Indiana"},             // 25
+    {n:"Lennox Wolak",s:"Wisconsin"},        // 26
+    {n:"Cade DeVos",s:"S. Dakota St."},      // 27
+    {n:"Philip Conigliaro",s:"Lehigh"},      // 28
+    {n:"MJ Gaitan",s:"Indiana"},             // 29
+    {n:"Luca Augustine",s:"Iowa"},           // 30
+    {n:"Alex Faison",s:"N. Carolina"},       // 31
+    {n:"Cade DeVos",s:"S. Dakota St."},      // 32
+    {n:"Edmond Ruth",s:"Oklahoma St."},      // 33 — pigtail
+  ],
+  174: [
+    {n:"Parker Keckeisen",s:"N. Iowa"},      // 1
+    {n:"Dustin Plott",s:"Oklahoma St."},     // 2
+    {n:"Bernie Truax",s:"Iowa St."},         // 3
+    {n:"Sam Wolf",s:"Wisconsin"},            // 4
+    {n:"James Conway",s:"Penn St."},         // 5
+    {n:"Tomas Brooker",s:"Penn St."},        // 6
+    {n:"Jacob Nolan",s:"Iowa"},              // 7
+    {n:"Malachi DuVall",s:"Maryland"},       // 8
+    {n:"Tony Negron",s:"Fresno St."},        // 9
+    {n:"Lenny Pinto",s:"Cornell"},           // 10
+    {n:"Bennett Berge",s:"S. Dakota St."},   // 11
+    {n:"Jaden Bullock",s:"Columbia"},        // 12
+    {n:"Nate Dugan",s:"Stanford"},           // 13
+    {n:"Aaron Ayzerov",s:"Rutgers"},         // 14
+    {n:"David Key",s:"N. Carolina"},         // 15
+    {n:"Isaiah Salazar",s:"CSU Bak."},       // 16
+    {n:"Trey Munoz",s:"Oklahoma"},           // 17
+    {n:"Gavin Kane",s:"Penn"},               // 18
+    {n:"Chris Foca",s:"Princeton"},          // 19
+    {n:"Layne Malczewski",s:"Mich. St."},    // 20
+    {n:"Reece Heller",s:"Stanford"},         // 21
+    {n:"Cameron Pine",s:"Central Mich."},    // 22
+    {n:"Thomas Stewart Jr",s:"Rider"},       // 23
+    {n:"Shane Liegel",s:"Wisconsin"},        // 24
+    {n:"Caleb Hopkins",s:"Penn St."},        // 25
+    {n:"Dylan Fishback",s:"Arizona St."},    // 26
+    {n:"Maximus Hale",s:"Cornell"},          // 27
+    {n:"Will Feldkamp",s:"Illinois"},        // 28
+    {n:"Ryder Rogotzke",s:"Minnesota"},      // 29
+    {n:"Jha'Quan Anderson",s:"Iowa St."},    // 30
+    {n:"Anthony D'Alesio",s:"Lehigh"},       // 31
+    {n:"Ryder Rogotzke",s:"Minnesota"},      // 32
+    {n:"Anthony D'Alesio",s:"Lehigh"},       // 33 — pigtail
+  ],
+  184: [
+    {n:"Aaron Brooks",s:"Penn St."},         // 1
+    {n:"Rocky Elam",s:"Missouri"},           // 2
+    {n:"Wyatt Voelker",s:"Iowa St."},        // 3
+    {n:"Trent Hidlay",s:"NC State"},         // 4
+    {n:"Michael Beard",s:"Penn St."},        // 5
+    {n:"Sam Mitchell",s:"Iowa St."},         // 6
+    {n:"Stephen Buchanan",s:"Air Force"},    // 7
+    {n:"Garrett Joles",s:"Iowa"},            // 8
+    {n:"Luke Stout",s:"Wyoming"},            // 9
+    {n:"Cole Urbas",s:"Cornell"},            // 10
+    {n:"Benjamin Smith",s:"Virginia"},       // 11
+    {n:"Nikolas Stemmet",s:"VMI"},           // 12
+    {n:"Levi Hopkins",s:"Ohio"},             // 13
+    {n:"Max Shaw",s:"Iowa"},                 // 14
+    {n:"Joseph Novak",s:"N. Iowa"},          // 15
+    {n:"Zach Glazier",s:"SIUE"},             // 16
+    {n:"Tanner Sloan",s:"S. Dakota St."},    // 17
+    {n:"Jacob Cardenas",s:"Oregon St."},     // 18
+    {n:"Stephen Little",s:"App. State"},     // 19
+    {n:"Lou Deprez",s:"Brown"},              // 20
+    {n:"Jaxon Smith",s:"Wyoming"},           // 21
+    {n:"Mac Stout",s:"Penn"},                // 22
+    {n:"John Poznanski",s:"Rutgers"},        // 23
+    {n:"Evan Bockman",s:"N. Iowa"},          // 24
+    {n:"Silas Allred",s:"Stanford"},         // 25
+    {n:"Jack Wehmeyer",s:"Iowa"},            // 26
+    {n:"Justin Rademacher",s:"Indiana"},     // 27
+    {n:"Andy Smith",s:"Illinois"},           // 28
+    {n:"Krystian Kinsey",s:"Pittsburgh"},    // 29
+    {n:"Luke Geog",s:"Northwestern"},        // 30
+    {n:"Andy Smith",s:"Illinois"},           // 31
+    {n:"Krystian Kinsey",s:"Pittsburgh"},    // 32
+    {n:"Luke Geog",s:"Northwestern"},        // 33 — pigtail
+  ],
+  197: [
+    {n:"Trent Hidlay",s:"NC State"},         // 1
+    {n:"Tanner Sloan",s:"S. Dakota St."},    // 2
+    {n:"Michael Beard",s:"Penn St."},        // 3
+    {n:"Rocky Elam",s:"Missouri"},           // 4
+    {n:"Wyatt Voelker",s:"Iowa"},            // 5
+    {n:"Krystian Kinsey",s:"Pittsburgh"},    // 6
+    {n:"Garrett Joles",s:"Virginia"},        // 7
+    {n:"Benjamin Smith",s:"Wisconsin"},      // 8
+    {n:"Mac Stout",s:"Iowa"},                // 9
+    {n:"Sam Mitchell",s:"Illinois"},         // 10
+    {n:"Jacob Cardenas",s:"Iowa"},           // 11
+    {n:"Justin Rademacher",s:"Indiana"},     // 12
+    {n:"Cole Urbas",s:"Oklahoma St."},       // 13
+    {n:"Luke Surber",s:"Nebraska"},          // 14
+    {n:"Silas Allred",s:"Oklahoma"},         // 15
+    {n:"John Crawford",s:"App. State"},      // 16
+    {n:"Stephen Little",s:"Va. Tech"},       // 17
+    {n:"Max Shaw",s:"Cornell"},              // 18
+    {n:"Evan Bockman",s:"Arizona St."},      // 19
+    {n:"Joseph Novak",s:"N. Iowa"},          // 20
+    {n:"Andy Smith",s:"Fresno St."},         // 21
+    {n:"Levi Hopkins",s:"Rutgers"},          // 22
+    {n:"Lou Deprez",s:"Ohio"},               // 23
+    {n:"Nikolas Stemmet",s:"N. Iowa"},       // 24
+    {n:"Zach Glazier",s:"VMI"},              // 25
+    {n:"John Poznanski",s:"Michigan"},       // 26
+    {n:"Luke Geog",s:"Northwestern"},        // 27
+    {n:"Jaxon Smith",s:"Iowa St."},          // 28
+    {n:"Stephen Buchanan",s:"Penn St."},     // 29
+    {n:"Aaron Brooks",s:"Penn St."},         // 30
+    {n:"Benjamin Smith",s:"Wisconsin"},      // 31
+    {n:"Evan Bockman",s:"Arizona St."},      // 32
+    {n:"Stephen Buchanan",s:"Penn St."},     // 33 — pigtail
+  ],
+  285: [
+    {n:"Greg Kerkvliet",s:"Penn St."},       // 1
+    {n:"Cohlton Schultz",s:"Arizona St."},   // 2
+    {n:"Zach Elam",s:"Missouri"},            // 3
+    {n:"Konner Doucet",s:"Oklahoma St."},    // 4
+    {n:"Nash Hutmacher",s:"S. Dakota St."}, // 5
+    {n:"Owen Trephan",s:"Va. Tech"},         // 6
+    {n:"Matthew Cover",s:"Michigan"},        // 7
+    {n:"Yonger Bastida",s:"Iowa St."},       // 8
+    {n:"Jordan Greer",s:"Penn St."},         // 9
+    {n:"Bennett Tabor",s:"Minnesota"},       // 10
+    {n:"Dorian Crosby",s:"Army"},            // 11
+    {n:"Seth Nevills",s:"Cal Poly"},         // 12
+    {n:"Nick Feldman",s:"Iowa St."},         // 13
+    {n:"Grady Griess",s:"Nebraska"},         // 14
+    {n:"Wyatt Hendrickson",s:"Air Force"},   // 15
+    {n:"Daniel Bucknavich",s:"Hofstra"},     // 16
+    {n:"Lewis Fernandes",s:"Oregon St."},    // 17
+    {n:"Bradley Hill",s:"Va. Tech"},         // 18
+    {n:"Taye Ghadiali",s:"Penn"},            // 19
+    {n:"David Szuba",s:"Ohio St."},          // 20
+    {n:"Josh Heindselman",s:"Illinois"},     // 21
+    {n:"Keaton Kluever",s:"Nebraska"},       // 22
+    {n:"Boone McDermott",s:"N. Iowa"},       // 23
+    {n:"Dayton Pitzer",s:"Purdue"},          // 24
+    {n:"Nathan Taylor",s:"Mich. St."},       // 25
+    {n:"Lucas Stoddard",s:"Chattanooga"},    // 26
+    {n:"Hunter Catka",s:"Kent St."},         // 27
+    {n:"Josiah Hill",s:"Penn St."},          // 28
+    {n:"Yaraslau Slavikouski",s:"Illinois"}, // 29
+    {n:"Lucas Davison",s:"Purdue"},          // 30
+    {n:"Cory Day",s:"Iowa"},                 // 31
+    {n:"Nick Willham",s:"Iowa"},             // 32
+    {n:"Jordan Greer",s:"Penn St."},         // 33 — pigtail
+  ],
+};
+
+// ─── BRACKET PAIRING ───────────────────────────────────────────────
+// 33-man field: Pigtail = seed 32 vs seed 33.
+// Winner of pigtail takes the "seed 32" slot against seed 1 in Round 1.
+// All other Round 1 pairings use seeds 1-31 in standard NCAA format.
+//
+// PAIRS[i] = [seedA-1, seedB-1] for championship Round 1 match i (0-indexed)
+// Match 0 is the #1 seed's match — 'b' slot will be filled by pigtail winner.
+const PAIRS = [
+  [0, null],   // 1 vs pigtail winner
+  [15,16],     // 16 vs 17
+  [8, 23],     // 9  vs 24
+  [7, 24],     // 8  vs 25
+  [4, 27],     // 5  vs 28
+  [11,20],     // 12 vs 21
+  [12,19],     // 13 vs 20
+  [3, 28],     // 4  vs 29
+  [2, 29],     // 3  vs 30
+  [13,18],     // 14 vs 19
+  [10,21],     // 11 vs 22
+  [5, 26],     // 6  vs 27
+  [6, 25],     // 7  vs 26    
+  [9, 22],     // 10 vs 23
+  [14,17],     // 15 vs 18
+  [30, 1],     // 2  vs 31
+
+];
+
+// ═══ STATE ═══
+// champ[-1]  = pigtail match (seed 32 vs 33)
+// champ[0-4] = championship rounds (R1 has 16 matches)
+// con[0-4]   = consolation rounds
+// place3,5,7 = place matches
+// champion   = wrestler obj | null
+
+const states = {};
+// ─── helpers: find a PAIRS match by seed matchup (stable even if PAIRS order changes) ───
+function seedsFromPair(pair){
+  const [ai, bi] = pair;
+  const a = (ai==null) ? null : ai+1;
+  const b = (bi==null) ? null : bi+1;
+  return [a,b];
+}
+function isMatch(pair, s1, s2){
+  const [a,b] = seedsFromPair(pair);
+  return (a===s1 && b===s2) || (a===s2 && b===s1);
+}
+function findMatchIndexBySeeds(s1, s2){
+  return PAIRS.findIndex(p => isMatch(p, s1, s2));
+}
+
+function mkW(field, idx0) {
+  const f = field[idx0];
+  return f ? {n:f.n, s:f.s, seed:idx0+1} : null;
+}
+function mkMatch(a, b) { return {a, b, w:null}; }
+
+function initBracket(wt) {
+  const F = FIELDS[wt];
+
+  // Pigtail: seed 32 (idx 31) vs seed 33 (idx 32)
+  const pigtail = mkMatch(mkW(F,31), mkW(F,32));
+
+  // Round 1: slot 'a' for all matches from PAIRS; 'b' for match 0 is TBD (pigtail winner)
+  const r1 = PAIRS.map(([ai, bi], mi) => {
+    const a = mkW(F, ai);
+    const b = (bi === null) ? null : mkW(F, bi);
+    return mkMatch(a, b);
+  });
+  // ─────────────────────────────────────────────────────────────
+  // LOSER DROP MAP (seed-based, NCAA-correct & stable to PAIRS order)
+  // ─────────────────────────────────────────────────────────────
+  const mi_1vPT  = findMatchIndexBySeeds(1, 32); // this will be match 0 in your PAIRS (1 vs PT winner)
+  const mi_3v30  = findMatchIndexBySeeds(3, 30);
+  const mi_14v19 = findMatchIndexBySeeds(14, 19);
+
+  // Top half seeds and bottom half seeds (for cross-pairing Con Rd 1)
+  const TOP_HALF = new Set([1,16,8,9,4,13,5,12]);
+  const BOT_HALF = new Set([2,15,7,10,3,14,6,11]);
+
+  const topMis = [];
+  const botMis = [];
+
+  PAIRS.forEach((pair, mi) => {
+    // skip special routes handled separately:
+    // - 1 vs PT (mi_1vPT)
+    // - 3 vs 30 (mi_3v30)
+    // - 14 vs 19 (mi_14v19)
+    if (mi === mi_1vPT || mi === mi_3v30 || mi === mi_14v19) return;
+
+    const [a,b] = seedsFromPair(pair);
+    const seeds = [a,b].filter(Boolean);
+
+    if (seeds.some(s => TOP_HALF.has(s))) topMis.push(mi);
+    else if (seeds.some(s => BOT_HALF.has(s))) botMis.push(mi);
+  });
+
+  // We need 7 cross-pairs feeding con[0][0..6].
+  // Bottom pool is short by 1 once we remove (3v30) and (14v19),
+  // so we use the loser of (1 vs PT) as the 7th "bottom" participant.
+  botMis.push(mi_1vPT);
+
+  const loserDrop = Array.from({length:16}, () => null);
+
+  // Special drops:
+  // loser(3v30) -> conPigtail.b  (faces pigtail loser)
+  loserDrop[mi_3v30]  = { type:'conPigtail', slot:'b' };
+
+  // loser(14v19) -> con[0][7].b (faces conPigtail winner)
+  loserDrop[mi_14v19] = { type:'conR1', idx:7, slot:'b' };
+
+  // Cross-pairs:
+  // topMis[i] loser -> con[0][i].a
+  // botMis[i] loser -> con[0][i].b
+  for (let i=0; i<7; i++){
+    loserDrop[topMis[i]] = { type:'conR1', idx:i, slot:'a' };
+    loserDrop[botMis[i]] = { type:'conR1', idx:i, slot:'b' };
+  }
+
+  const r2 = Array.from({length:8},  ()=>mkMatch(null,null));
+  const r3 = Array.from({length:4},  ()=>mkMatch(null,null));
+  const r4 = Array.from({length:2},  ()=>mkMatch(null,null));
+  const r5 = [mkMatch(null,null)];
+
+  // Consolation structure (correct NCAA routing):
+  //
+  // conPigtail: 1 match — pigtail loser vs loser of 3v30 (champ R1 mi=12)
+  //
+  // con[0] = Con Rd 1: 8 matches
+  //   7 matches: remaining R1 losers cross-paired (mi 1-7 top vs mi 8-11,14-15 bottom)
+  //   1 match: conPigtail winner vs loser of 14v19 (champ R1 mi=13)
+  //
+  // con[1] = Con Rd 2: 8 matches — con[0] winners vs Champ Rd 2 losers
+  // con[2] = Con Rd 3: 4 matches — con[1] winners paired with Champ QF losers
+  // con[3] = Con Rd 4: 4 matches — con[2] winners
+  // con[4] = Con Semis: 2 matches
+ const con = [
+  Array.from({length:8}, ()=>mkMatch(null,null)),  // con[0] Con Rd 1
+  Array.from({length:8}, ()=>mkMatch(null,null)),  // con[1] Con Rd 2
+  Array.from({length:4}, ()=>mkMatch(null,null)),  // con[2] Con Rd 3
+  Array.from({length:4}, ()=>mkMatch(null,null)),  // con[3] Con Rd 4
+  Array.from({length:2}, ()=>mkMatch(null,null)),  // con[4] Con Quarters  ✅ NEW
+  Array.from({length:2}, ()=>mkMatch(null,null)),  // con[5] Con Semis     ✅ NEW
+];
+
+  states[wt] = {
+    pigtail,
+    conPigtail: mkMatch(null,null),  // pigtail loser vs loser of 3v30
+    champ: [r1,r2,r3,r4,r5],
+    con,
+    place3: mkMatch(null,null),
+    place5: mkMatch(null,null),
+    place7: mkMatch(null,null),
+    champion: null
+  };
+}
+
+function getS(wt) {
+  if (!states[wt]) initBracket(wt);
+  return states[wt];
+}
+
+// ═══ PICK WINNER ═══
+// Each pick is logged so we can replay with a swap
+const pickLog = {}; // wt → [{bracket, ri, mi, slot}, ...]
+
+function pick(wt, bracket, ri, mi, slot) {
+  const st = getS(wt);
+  let match;
+  if      (bracket==='pigtail')    match = st.pigtail;
+  else if (bracket==='conPigtail') match = st.conPigtail;
+  else if (bracket==='champ')      match = st.champ[ri][mi];
+  else if (bracket==='con')        match = st.con[ri][mi];
+  else if (bracket==='p3')         match = st.place3;
+  else if (bracket==='p5')         match = st.place5;
+  else if (bracket==='p7')         match = st.place7;
+
+  if (!match || !match.a || !match.b) return;
+  if (match.w) return;
+
+  // Log this pick
+  if (!pickLog[wt]) pickLog[wt] = [];
+  pickLog[wt].push({bracket, ri, mi, slot});
+
+  applyPick(st, bracket, ri, mi, slot);
+  render();
+}
+
+// swap: change the winner of an already-decided match.
+// Strategy: reset bracket, replay all prior picks, replace the swapped pick with opposite slot,
+// then drop all picks that came AFTER this match in the log (they depended on the old result).
+function swap(wt, bracket, ri, mi, newWinnerSlot) {
+  const log = pickLog[wt] || [];
+
+  // Find this pick in the log
+  const idx = log.findIndex(p =>
+    p.bracket === bracket && p.ri === ri && p.mi === mi &&
+    (bracket === 'pigtail' || bracket === 'conPigtail' || (p.bracket === bracket))
+  );
+  if (idx === -1) return;
+
+  // Build new log: keep everything before this pick, change this one, drop everything after
+  const newLog = [
+    ...log.slice(0, idx),
+    {bracket, ri, mi, slot: newWinnerSlot}
+  ];
+
+  // Reset and replay
+  delete states[wt];
+  pickLog[wt] = [];
+
+  newLog.forEach(p => pick(wt, p.bracket, p.ri, p.mi, p.slot));
+  // render() is called inside pick(), so we're good
+}
+
+function applyPick(st, bracket, ri, mi, slot) {
+  let match;
+  if      (bracket==='pigtail')    match = st.pigtail;
+  else if (bracket==='conPigtail') match = st.conPigtail;
+  else if (bracket==='champ')      match = st.champ[ri][mi];
+  else if (bracket==='con')        match = st.con[ri][mi];
+  else if (bracket==='p3')         match = st.place3;
+  else if (bracket==='p5')         match = st.place5;
+  else if (bracket==='p7')         match = st.place7;
+
+  if (!match || !match.a || !match.b || match.w) return;
+
+  const winner = slot==='a' ? match.a : match.b;
+  const loser  = slot==='a' ? match.b : match.a;
+  match.w = slot;
+
+  if (bracket==='pigtail') {
+    // Winner → #1 seed's R1 match
+    st.champ[0][0].b = winner;
+    // Loser → conPigtail 'a' slot (faces loser of 3v30, champ R1 mi=12)
+    st.conPigtail.a = loser;
+  }
+  else if (bracket==='conPigtail') {
+    
+    st.con[0][4].a = winner;
+    // Loser eliminated
+  }
+  else if (bracket==='champ') advanceChamp(st, ri, mi, winner, loser);
+  else if (bracket==='con')   advanceCon(st, ri, mi, winner, loser);
+}
+
+function advanceChamp(st, ri, mi, winner, loser) {
+  // Advance winner up championship bracket
+  if (ri < 4) {
+    const nm = st.champ[ri+1][Math.floor(mi/2)];
+    if (mi%2===0) nm.a = winner; else nm.b = winner;
+  } else {
+    st.champion = winner;
+  }
+
+  // Route loser to consolation
+ if (ri === 0) {
+  // mi index reference from your PAIRS:
+  // mi 0 = 1 vs pigtail winner
+  // mi 1 = 16 vs 17
+  // mi 8 = 3 vs 30   (your special con-pigtail drop)
+  //
+  // Con Rd 1 has 8 matches: con[0][0..7]
+  // con[0][0] is reserved for (mi0 loser) vs (mi1 loser)
+  // conPigtail winner feeds con[0][7].a (already handled in applyPick for 'conPigtail')
+
+  if (mi === 0) {                 // 1 vs pigtail winner
+    st.con[0][0].a = loser;
+    return;
+  }
+  if (mi === 1) {                 // 16 vs 17
+    st.con[0][0].b = loser;
+    return;
+  }
+  if (mi === 2) {                 
+    st.con[0][1].a = loser;
+    return;
+  }
+  if (mi === 3) {                 
+    st.con[0][1].b = loser;
+    return;
+  }
+  if (mi === 4) {                 
+    st.con[0][2].a = loser;
+    return;
+  }
+  if (mi === 5) {                 
+    st.con[0][2].b = loser;
+    return;
+  }
+  if (mi === 6) {                
+    st.con[0][3].a = loser;
+    return;
+  }
+  if (mi === 7) {                 
+    st.con[0][3].b = loser;
+    return;
+  }
+  if (mi === 8) {                 // 3 vs 30
+    st.conPigtail.b = loser;      // conPigtail.a comes from pigtail loser
+    return;
+  }
+if (mi === 9) {                
+    st.con[0][4].b = loser;
+    return;
+  }
+  if (mi === 10) {                 
+    st.con[0][5].a = loser;
+    return;
+  }
+if (mi === 11) {                
+    st.con[0][5].b = loser;
+    return;
+  }
+  if (mi === 12) {                 
+    st.con[0][6].a = loser;
+    return;
+  }
+if (mi === 13) {                
+    st.con[0][6].b = loser;
+    return;
+  }
+  if (mi === 14) {                 
+    st.con[0][7].a = loser;
+    return;
+  }
+if (mi === 15) {                
+    st.con[0][7].b = loser;
+    return;
+
+  }
+}
+ else if (ri === 1) {
+  // Champ R2 has 8 matches: mi 0..7
+  // Remap losers into Cons Rd 2 (con[1]) in a "cross bracket" pattern.
+  // Edit this map to match EXACT NCAA placement you want.
+const dropMap = {
+  0: { m: 7, slot: 'a' }, // cross
+  1: { m: 6, slot: 'a' },
+  2: { m: 5, slot: 'a' },
+  3: { m: 4, slot: 'a' },
+  4: { m: 3, slot: 'a' },
+  5: { m: 2, slot: 'a' },
+  6: { m: 1, slot: 'a' },
+  7: { m: 0, slot: 'a' },
+};
+
+  const d = dropMap[mi];
+  if (d) st.con[1][d.m][d.slot] = loser;
+}
+else if (ri === 2) {
+  // QF losers → Cons Rd 4 (con[3]) using NCAA-style lane order
+  const qfToCon4 = [1, 0, 3, 2];   // QF0->Con4[1], QF1->Con4[0], QF2->Con4[3], QF3->Con4[2]
+  st.con[3][qfToCon4[mi]].a = loser;   // losers are ALWAYS the .a side in Cons4
+}  
+else if (ri === 3) {
+  // Champ SF losers -> Cons Semis (con[5]) on the "a" side, CROSS-LANED
+  // mi 0 loser goes to con[5][1].a
+  // mi 1 loser goes to con[5][0].a
+  const sfToConSemi = [1, 0];
+  st.con[5][sfToConSemi[mi]].a = loser;
+}
+}
+
+function advanceCon(st, ri, mi, winner,loser) {
+  if (ri === 0) {
+    st.con[1][mi].b = winner;
+  }
+  else if (ri === 1) {
+    const nm = st.con[2][Math.floor(mi/2)];
+    if (mi % 2 === 0) nm.b = winner; else nm.a = winner;
+  }
+else if (ri === 2) {
+  const qfToCon4 = [0,1,2,3];
+  st.con[3][qfToCon4[mi]].b = winner;
+}
+  else if (ri === 3) {
+    // ✅ Con Rd 4 winners -> NEW Con Quarters (2 matches)
+    const nm = st.con[4][Math.floor(mi/2)];
+    if (mi % 2 === 0) nm.a = winner; else nm.b = winner;
+  }
+ else if (ri === 4) {
+  // Con Quarters winners -> Con Semis as opponent vs Champ SF loser
+  st.con[5][mi].b = winner;
+
+  // Con Quarters losers -> 7th/8th place match
+  if (!st.place7.a) st.place7.a = loser;
+  else st.place7.b = loser;
+}
+  else if (ri === 5) {
+  // Consolation Semis:
+  // winner -> 3rd place match
+  // loser  -> 5th place match
+
+  if (!st.place3.a) st.place3.a = winner;
+  else st.place3.b = winner;
+
+  if (!st.place5.a) st.place5.a = loser;
+  else st.place5.b = loser;
+}
+}
+
+// ═══════════════════════════════════════════════
+// RENDERING
+// ═══════════════════════════════════════════════
+let CW = 125;
+
+const WLIST = [125,133,141,149,157,165,174,184,197,285];
+const CHAMP_RND_NAMES = ['Round 1','Rd of 16','Quarterfinals','Semifinals','Finals'];
+const CON_RND_NAMES   = ['Con. Rd 1','Con. Rd 2','Con. Rd 3','Con. Rd 4','Con. Qtrs','Con. Semis'];
+
+function renderWeightTabs() {
+  document.getElementById('wtabs').innerHTML = WLIST.map(w=>
+    `<button class="wtab ${w===CW?'on':''}" onclick="switchW(${w})">${w}</button>`
+  ).join('');
+}
+
+function switchW(w) { CW=w; renderWeightTabs(); render(); }
+
+function resetBracket() { delete states[CW]; delete pickLog[CW]; renderWeightTabs(); render(); }
+
+// Build a wrestler slot HTML
+function slotHTML(m, which, bkt, ri, mi) {
+  const wr = m[which];
+  const other = which==='a' ? 'b' : 'a';
+  const isWin = m.w === which;
+  const isLos = m.w && m.w !== which;
+  const hasOther = !!m[other];
+
+  if (!wr) return `<div class="sl empty"><span class="sl-tbd">TBD</span></div>`;
+
+  const canPick = !m.w && wr && hasOther;
+  const canSwap = isLos; // loser can be clicked to swap
+  const cls = `sl ${isWin?'w':''} ${isLos?'l':''}`.trim();
+  const nameParts = wr.n.split(' ');
+  const fn = nameParts[0];
+  const ln = nameParts.slice(1).join(' ');
+  const seedStr = wr.seed <= 16 ? wr.seed : '';
+
+  let onclick = '';
+  let title = '';
+  if (canPick) {
+    onclick = `onclick="pick(${CW},'${bkt}',${ri},${mi},'${which}')"`;
+    title = `title="Advance ${wr.n}"`;
+  } else if (canSwap) {
+    onclick = `onclick="swap(${CW},'${bkt}',${ri},${mi},'${which}')"`;
+    title = `title="Switch winner to ${wr.n}"`;
+  }
+
+  const swapHint = canSwap ? `<span class="swap-hint">↺ change</span>` : '';
+
+  return `<div class="${cls}" ${onclick} ${title}>
+    <span class="sl-sd">${seedStr}</span>
+    <span class="sl-nm"><span class="fn">${fn}</span> <strong>${ln||fn}</strong></span>
+    <span class="sl-sc">${wr.s||''}</span>
+    ${swapHint}
+  </div>`;
+}
+
+function matchHTML(m, bkt, ri, mi, extra='') {
+  if (!m) return '';
+  return `<div class="mc ${extra}">
+    ${slotHTML(m,'a',bkt,ri,mi)}
+    <div class="md"></div>
+    ${slotHTML(m,'b',bkt,ri,mi)}
+  </div>`;
+}
+
+function champBox(champion) {
+  if (champion) {
+    const p = champion.n.split(' ');
+    return `<div class="cbox"><div class="ccard">
+      <div class="crn">🏆</div>
+      <div class="clbl">Champion</div>
+      <div class="cnm">${p[0]} ${p.slice(1).join(' ')}</div>
+      <div class="csc">${champion.s}</div>
+    </div></div>`;
+  }
+  return `<div class="cbox"><div class="ccard empty">
+    <div class="crn">🏆</div>
+    <div class="clbl">Champion</div>
+    <div class="cnm">Undecided</div>
+  </div></div>`;
+}
+
+function render() {
+  const st = getS(CW);
+  const MH = 68, GAP = 6;
+
+  // ── CHAMPIONSHIP ──
+  let html = `<div class="sec-hd sec-champ"><div class="line"></div><div class="lbl">Championship Bracket</div><div class="line"></div></div>`;
+  html += `<div class="bgrid">`;
+
+  // ── PIGTAIL COLUMN ──
+  // Vertically aligned to match where Round 1 match 0 (the #1 seed) will sit
+  html += `<div class="rcol">
+    <div class="rhdr gc" style="color:var(--gold);opacity:.7">Pigtail</div>
+    <div style="display:flex;flex-direction:column;">
+      <div style="margin-bottom:${GAP}px;">
+        ${matchHTML(st.pigtail,'pigtail',0,0,'pt')}
+      </div>
+    </div>
+  </div>`;
+  // Arrow connector
+  html += `<div class="rconn" style="display:flex;align-items:flex-start;padding-top:${MH/2-6}px;">
+    <div style="font-size:10px;color:var(--gold);opacity:.5;">→</div>
+  </div>`;
+
+  // ── CHAMPIONSHIP ROUNDS ──
+  st.champ.forEach((round, ri) => {
+    const sp = Math.pow(2, ri);
+    html += `<div class="rcol"><div class="rhdr gc">${CHAMP_RND_NAMES[ri]}</div><div>`;
+    round.forEach((m, mi) => {
+      const mt = mi===0 ? (sp-1)*(MH+GAP)/2 : (sp-1)*(MH+GAP);
+      // Mark the #1 seed match specially until pigtail is done
+      const isOne = ri===0 && mi===0;
+      const extraCls = ri===4 ? 'cm' : (isOne && !st.pigtail.w ? 'pt-pending' : '');
+      html += `<div style="margin-top:${mt}px;margin-bottom:${GAP}px">
+        ${matchHTML(m,'champ',ri,mi, extraCls)}
+      </div>`;
+    });
+    html += `</div></div><div class="rconn"></div>`;
+  });
+
+  html += champBox(st.champion);
+  html += `</div>`;
+
+  // ── CONSOLATION ──
+  html += `<div class="sec-hd sec-con"><div class="line"></div><div class="lbl">⬇ Consolation Bracket — Losers Drop Here</div><div class="line"></div></div>`;
+  html += `<div class="bgrid" style="align-items:flex-start">`;
+
+  // Spacer to align con bracket under champ bracket pigtail + connector
+  // html += `<div style="width:${168+14}px;flex-shrink:0;"></div>`;
+
+  // ── CON PIGTAIL COLUMN ──
+  // pigtail loser vs loser of 3v30 — shows once either is populated
+  const cpHasData = st.conPigtail.a || st.conPigtail.b;
+  html += `<div class="rcol">
+    <div class="rhdr cc" style="opacity:.7">Con Pigtail</div>
+    <div style="display:flex;flex-direction:column;">
+      <div style="margin-bottom:${GAP}px;">
+        ${cpHasData
+          ? matchHTML(st.conPigtail,'conPigtail',0,0,'con pt')
+          : `<div style="min-width:168px;padding:8px;font-size:9px;color:var(--t3);font-style:italic">Awaiting pigtail & 3v30…</div>`
+        }
+      </div>
+    </div>
+  </div>`;
+  html += `<div class="rconn" style="display:flex;align-items:flex-start;padding-top:${MH/2-6}px;">
+    <div style="font-size:10px;color:var(--orange);opacity:.4;">→</div>
+  </div>`;
+
+  // ── CON ROUNDS ──
+  st.con.forEach((round, ri) => {
+    html += `<div class="rcol"><div class="rhdr cc">${CON_RND_NAMES[ri]}</div><div style="display:flex;flex-direction:column;gap:${GAP}px">`;
+    const hasData = round.some(m=>m.a||m.b);
+    if (!hasData) {
+      html += `<div style="min-width:168px;padding:10px 8px;font-size:9px;color:var(--t3);font-style:italic">Awaiting results…</div>`;
+    } else {
+      round.forEach((m, mi) => {
+  html += `<div>${matchHTML(m,'con',ri,mi,'con')}</div>`;
+});
+    }
+    html += `</div></div><div class="rconn"></div>`;
+  });
+
+  // Place matches
+  html += `<div class="rcol"><div class="rhdr" style="color:#cd7f32">Place Matches</div><div style="display:flex;flex-direction:column;gap:10px">`;
+  
+  const placeMatches = [
+    {m:st.place3, bkt:'p3', lbl:'🥉 3rd Place', cls:'pm'},
+    {m:st.place5, bkt:'p5', lbl:'5th Place',    cls:'con'},
+    {m:st.place7, bkt:'p7', lbl:'7th Place',    cls:'con'},
+  ];
+  placeMatches.forEach(({m, bkt, lbl, cls}) => {
+    if (m.a || m.b) {
+      html += `<div>
+        <div class="pl-lbl">${lbl}</div>
+        ${matchHTML(m, bkt, 0, 0, cls)}
+      </div>`;
+    }
+  });
+
+  html += `</div></div></div>`;
+
+  document.getElementById('bkt').innerHTML = html;
+}
+
+// ─── INIT ───
+renderWeightTabs();
+render();
+
+// ═══════════════════════════════════════════════════════════
+// PRINT — modal + per-page bracket builder
+// ═══════════════════════════════════════════════════════════
+
+// Populate modal checkboxes
+(function initPrintModal() {
+  const grid = document.getElementById('pm-checks');
+  WLIST.forEach(w => {
+    const lbl = document.createElement('label');
+    lbl.className = 'pm-wchk';
+    lbl.innerHTML = `<input type="checkbox" value="${w}" checked><span>${w}</span>`;
+    grid.appendChild(lbl);
+  });
+})();
+
+function pmSelectAll()  { document.querySelectorAll('#pm-checks input').forEach(c=>c.checked=true); }
+function pmSelectNone() { document.querySelectorAll('#pm-checks input').forEach(c=>c.checked=false); }
+
+function printBracket() { document.getElementById('print-modal').classList.add('open'); }
+function closePrintModal() { document.getElementById('print-modal').classList.remove('open'); }
+
+function doPrint() {
+  const selected = [...document.querySelectorAll('#pm-checks input:checked')].map(c => +c.value);
+  if (!selected.length) { alert('Select at least one weight class.'); return; }
+  closePrintModal();
+
+  const root = document.getElementById('print-root');
+  root.innerHTML = selected.map(wt =>
+    `<div class="print-page"><div class="psw" id="psw-${wt}">${buildPrintPage(wt)}</div></div>`
+  ).join('');
+
+  // Measure content in an off-screen sandbox at a known width
+  root.style.display = 'block';
+  root.style.position = 'fixed';
+  root.style.top = '-99999px';
+  root.style.left = '0';
+  root.style.width = '3000px';
+  root.style.height = 'auto';
+
+  // Page printable area: 267mm x 182mm  (landscape A4 minus 5mm/6mm margins)
+  // At 96dpi: 1mm = 3.7795px
+  const MM = 3.7795;
+  const PAGE_W_PX = 267 * MM;
+  const PAGE_H_PX = 182 * MM;
+
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    selected.forEach(wt => {
+      const wrap = document.getElementById(`psw-${wt}`);
+      if (!wrap) return;
+
+      const naturalW = wrap.scrollWidth;
+      const naturalH = wrap.scrollHeight;
+
+      // Scale to fit within printable area, never exceed 1.0 upward unless tiny
+      const scale = Math.min(PAGE_W_PX / naturalW, PAGE_H_PX / naturalH, 1.05);
+      wrap.style.transform = `scale(${scale})`;
+      wrap.style.transformOrigin = 'top left';
+
+      // Center within the page box
+      const scaledW = naturalW * scale;
+      const scaledH = naturalH * scale;
+      wrap.style.left = `${Math.max(0, (PAGE_W_PX - scaledW) / 2)}px`;
+      wrap.style.top  = `${Math.max(0, (PAGE_H_PX - scaledH) / 2)}px`;
+    });
+
+    setTimeout(() => {
+      root.style.position = '';
+      root.style.top = '';
+      root.style.left = '';
+      root.style.width = '';
+      window.print();
+      setTimeout(() => { root.style.display = 'none'; root.innerHTML = ''; }, 1500);
+    }, 200);
+  }));
+}
+// ── Print page HTML builder ─────────────────────────────────
+
+function pSlot(m, which) {
+  const wr = m[which];
+  const isW = m.w === which;
+  const isL = m.w && m.w !== which;
+  if (!wr) return `<div class="ps tbd"><span class="pstbd">TBD</span></div>`;
+  const seed = wr.seed <= 16 ? wr.seed : '';
+  // Use first initial + last name to save space
+  const parts = wr.n.trim().split(/\s+/);
+  const display = parts.length > 1 ? parts[0][0] + '. ' + parts.slice(1).join(' ') : parts[0];
+  return `<div class="ps ${isW?'win':''} ${isL?'los':''}">
+    <span class="psseed">${seed}</span>
+    <span class="psname">${display}</span>
+    <span class="pssch">${wr.s||''}</span>
+  </div>`;
+}
+
+function pMatch(m, cls='') {
+  if (!m) return '';
+  return `<div class="pm ${cls}">${pSlot(m,'a')}<div class="pmd"></div>${pSlot(m,'b')}</div>`;
+}
+
+function pChampCard(champ) {
+  if (champ) {
+    const parts = champ.n.trim().split(/\s+/);
+    const display = parts.length > 1 ? parts[0][0] + '. ' + parts.slice(1).join(' ') : parts[0];
+    return `<div class="pchbox"><div class="pchcard">
+      <div class="pcrown">🏆</div><div class="pclbl">Champ</div>
+      <div class="pcnm">${display}</div><div class="pcsc">${champ.s}</div>
+    </div></div>`;
+  }
+  return `<div class="pchbox"><div class="pchcard empty">
+    <div class="pcrown">🏆</div><div class="pclbl">Champ</div><div class="pcnm">—</div>
+  </div></div>`;
+}
+
+function buildPrintPage(wt) {
+  const st = getS(wt);
+  const MH = 28, GAP = 2;
+  const RN  = ['Rd 1','Rd 16','QF','SF','Final'];
+  const CN  = ['Con 1','Con 2','Con 3','Con 4','Con SF'];
+
+  // ── Header ──
+  let h = `<div class="ph">
+    <div>
+      <div class="ph-title">NCAA Wrestling Championships</div>
+      <div class="ph-sub">Division I · Kansas City, MO · March 21–23, 2024</div>
+    </div>
+    <div class="ph-wt">${wt} lbs</div>
+    <div class="ph-right">
+      <div class="ph-clbl">Champion</div>
+      ${st.champion
+        ? `<div class="ph-cnm">${st.champion.n}</div><div class="ph-csc">${st.champion.s}</div>`
+        : `<div class="ph-cnm" style="color:#aaa;font-weight:400">—</div>`}
+    </div>
+  </div>`;
+
+  // ── Championship bracket ──
+  h += `<div class="ps-lbl">Championship Bracket</div>`;
+  h += `<div class="pbg">`;
+
+  // Pigtail
+  h += `<div class="prc"><div class="prh">Pigtail</div><div>${pMatch(st.pigtail,'pigtail')}</div></div>`;
+  h += `<div class="prcn"></div>`;
+
+  // Champ rounds
+  st.champ.forEach((round, ri) => {
+    const sp = Math.pow(2, ri);
+    h += `<div class="prc"><div class="prh">${RN[ri]}</div><div>`;
+    round.forEach((m, mi) => {
+      const mt = mi===0 ? (sp-1)*(MH+GAP)/2 : (sp-1)*(MH+GAP);
+      h += `<div style="margin-top:${mt}px;margin-bottom:${GAP}px">${pMatch(m, ri===4?'champ-final':'')}</div>`;
+    });
+    h += `</div></div><div class="prcn"></div>`;
+  });
+
+  h += pChampCard(st.champion);
+  h += `</div>`; // end champ pbg
+
+  // ── Consolation bracket ──
+  h += `<div class="ps-lbl">Consolation Bracket</div>`;
+  h += `<div class="pbg" style="align-items:flex-start">`;
+  // Spacer aligns under champ pigtail col only (no connector spacer needed)
+  h += `<div style="width:${110+8}px;flex-shrink:0"></div>`;
+
+  // Con Pigtail col
+  const cpData = st.conPigtail.a || st.conPigtail.b;
+  h += `<div class="prc"><div class="prh">Con Pigtail</div><div>`;
+  h += cpData ? pMatch(st.conPigtail,'consolation') : `<div style="min-width:110px;min-height:${MH}px"></div>`;
+  h += `</div></div><div class="prcn"></div>`;
+
+  st.con.forEach((round, ri) => {
+    const anyData = round.some(m => m.a || m.b);
+    h += `<div class="prc"><div class="prh">${CN[ri]}</div><div style="display:flex;flex-direction:column;gap:${GAP}px">`;
+    if (anyData) {
+     round.forEach(m => {
+  h += `<div>${pMatch(m,'consolation')}</div>`;
+});
+    } else {
+      h += `<div style="min-width:110px;min-height:${MH}px"></div>`;
+    }
+    h += `</div></div><div class="prcn"></div>`;
+  });
+
+  // Place matches
+  h += `<div class="prc"><div class="prh">Places</div><div style="display:flex;flex-direction:column;gap:4px">`;
+  [{m:st.place3,lbl:'3rd Place'},{m:st.place5,lbl:'5th Place'},{m:st.place7,lbl:'7th Place'}]
+    .forEach(({m,lbl}) => {
+      if (m.a || m.b) h += `<div><div class="ppl-lbl">${lbl}</div>${pMatch(m,'place-match')}</div>`;
+    });
+  h += `</div></div>`;
+
+  h += `</div>`; // end con pbg
+  return h;
+}
+</script>
+</body>
+</html>
