@@ -6,13 +6,13 @@
       "round": "Prelim",
       "wrestler1": {
         "seed": 33,
-        "name": "Caleb Weiand",
-        "school": "Michigan State"
+        "name": "Jace Schafer",
+        "school": "Bloomsburg"
       },
       "wrestler2": {
         "seed": 32,
-        "name": "Marcello Milani",
-        "school": "Cornell"
+        "name": "Mack Mauger",
+        "school": "Missouri"
       },
       "winnerMatch": 1,
       "winnerSlot": "wrestler2",
@@ -41,13 +41,13 @@
       "round": "ChampR1",
       "wrestler1": {
         "seed": 17,
-        "name": "Max Gallagher",
-        "school": "Pennsylvania"
+        "name": "Jett Strickenberger",
+        "school": "West Virginia"
       },
       "wrestler2": {
         "seed": 16,
-        "name": "Blake West",
-        "school": "Northern Illinois"
+        "name": "Ezekiel Witt",
+        "school": "ND State"
       },
       "winnerMatch": 17,
       "winnerSlot": "wrestler2",
@@ -59,13 +59,13 @@
       "round": "ChampR1",
       "wrestler1": {
         "seed": 9,
-        "name": "Caleb Smith",
-        "school": "Nebraska"
+        "name": "Maximo Renteria",
+        "school": "Oregon State"
       },
       "wrestler2": {
         "seed": 24,
-        "name": "Nick Babin",
-        "school": "Pittsburgh"
+        "name": "Ayden Smith",
+        "school": "Rutgers"
       },
       "winnerMatch": 18,
       "winnerSlot": "wrestler1",
@@ -77,13 +77,13 @@
       "round": "ChampR1",
       "wrestler1": {
         "seed": 25,
-        "name": "Charlie Farmer",
-        "school": "Army West Point"
+        "name": "Kael Lauridsen",
+        "school": "Nebraska"
       },
       "wrestler2": {
         "seed": 8,
-        "name": "Sheldon Seymour",
-        "school": "Lehigh"
+        "name": "Dean Peterson",
+        "school": "Iowa"
       },
       "winnerMatch": 18,
       "winnerSlot": "wrestler2",
@@ -95,13 +95,13 @@
       "round": "ChampR1",
       "wrestler1": {
         "seed": 5,
-        "name": "Richard Figueroa",
-        "school": "Arizona State"
+        "name": "Troy Spratley",
+        "school": "Oklahoma State"
       },
       "wrestler2": {
         "seed": 28,
-        "name": "Koda Holeman",
-        "school": "Cal Poly"
+        "name": "Andrew Binni",
+        "school": "Navy"
       },
       "winnerMatch": 19,
       "winnerSlot": "wrestler1",
@@ -113,13 +113,13 @@
       "round": "ChampR1",
       "wrestler1": {
         "seed": 21,
-        "name": "Antonio Lorenzo",
+        "name": "Conrad Hendriksen",
         "school": "Oklahoma"
       },
       "wrestler2": {
         "seed": 12,
-        "name": "Dean Peterson",
-        "school": "Rutgers"
+        "name": "Vincent Robinson",
+        "school": "NC State"
       },
       "winnerMatch": 19,
       "winnerSlot": "wrestler2",
@@ -131,13 +131,13 @@
       "round": "ChampR1",
       "wrestler1": {
         "seed": 13,
-        "name": "Marc-Anthony McGowan",
-        "school": "Princeton"
+        "name": "Stevo Poulin",
+        "school": "Iowa State"
       },
       "wrestler2": {
         "seed": 20,
-        "name": "Brendan McCrone",
-        "school": "Ohio State"
+        "name": "Diego Sotelo",
+        "school": "Michigan"
       },
       "winnerMatch": 20,
       "winnerSlot": "wrestler1",
@@ -149,13 +149,13 @@
       "round": "ChampR1",
       "wrestler1": {
         "seed": 29,
-        "name": "Joey Cruz",
-        "school": "Iowa"
+        "name": "Tyler Chappell",
+        "school": "Pittsburgh"
       },
       "wrestler2": {
         "seed": 4,
-        "name": "Vincent Robinson",
-        "school": "NC State"
+        "name": "Sheldon Seymour",
+        "school": "Lehigh"
       },
       "winnerMatch": 20,
       "winnerSlot": "wrestler2",
@@ -167,13 +167,13 @@
       "round": "ChampR1",
       "wrestler1": {
         "seed": 3,
-        "name": "Eddie Ventresca",
-        "school": "Virginia Tech"
+        "name": "Nic Bouzakis",
+        "school": "Ohio State"
       },
       "wrestler2": {
         "seed": 30,
-        "name": "Gylon Sims",
-        "school": "Citadel"
+        "name": "Sulayman Bah",
+        "school": "Columbia"
       },
       "winnerMatch": 21,
       "winnerSlot": "wrestler1",
@@ -185,13 +185,13 @@
       "round": "ChampR1",
       "wrestler1": {
         "seed": 19,
-        "name": "Cooper Flynn",
-        "school": "Minnesota"
+        "name": "Kysen Terukina",
+        "school": "North Carolina"
       },
       "wrestler2": {
         "seed": 14,
-        "name": "Spencer Moore",
-        "school": "North Carolina"
+        "name": "Jacob Moran",
+        "school": "Indiana"
       },
       "winnerMatch": 21,
       "winnerSlot": "wrestler2",
@@ -203,13 +203,13 @@
       "round": "ChampR1",
       "wrestler1": {
         "seed": 11,
-        "name": "Nicolar Rivera",
-        "school": "Wisconsin"
+        "name": "Tyler Klinsky",
+        "school": "Rider"
       },
       "wrestler2": {
         "seed": 22,
-        "name": "Trever Anderson",
-        "school": "Northern Iowa"
+        "name": "Davis Motyka",
+        "school": "Penn"
       },
       "winnerMatch": 22,
       "winnerSlot": "wrestler1",
@@ -221,13 +221,13 @@
       "round": "ChampR1",
       "wrestler1": {
         "seed": 27,
-        "name": "Tristan Daugherty",
-        "school": "North Dakota State"
+        "name": "Brady Roark",
+        "school": "SD State"
       },
       "wrestler2": {
         "seed": 6,
-        "name": "Jett Strickenberger",
-        "school": "West Virginia"
+        "name": "Jore Volk",
+        "school": "Minnesota"
       },
       "winnerMatch": 22,
       "winnerSlot": "wrestler2",
@@ -239,13 +239,13 @@
       "round": "ChampR1",
       "wrestler1": {
         "seed": 7,
-        "name": "Troy Spratley",
-        "school": "Oklahoma State"
+        "name": "Nico Provo",
+        "school": "Stanford"
       },
       "wrestler2": {
         "seed": 26,
-        "name": "Keyveon Roller",
-        "school": "Virginia"
+        "name": "Cooper Flynn",
+        "school": "Chattanooga"
       },
       "winnerMatch": 23,
       "winnerSlot": "wrestler1",
@@ -257,13 +257,13 @@
       "round": "ChampR1",
       "wrestler1": {
         "seed": 23,
-        "name": "Tanner Jordan",
-        "school": "South Dakota State"
+        "name": "Nicolar Rivera",
+        "school": "Wisconsin"
       },
       "wrestler2": {
         "seed": 10,
-        "name": "Stevo Poulin",
-        "school": "Northern Colorado"
+        "name": "Marc-Anthony McGowan",
+        "school": "Princeton"
       },
       "winnerMatch": 23,
       "winnerSlot": "wrestler2",
@@ -275,13 +275,13 @@
       "round": "ChampR1",
       "wrestler1": {
         "seed": 15,
-        "name": "Maximo Renteria",
-        "school": "Oregon State"
+        "name": "Koda Holeman",
+        "school": "Cal Poly"
       },
       "wrestler2": {
         "seed": 18,
-        "name": "Jacob Moran",
-        "school": "Indiana"
+        "name": "Spencer Moore",
+        "school": "Illinois"
       },
       "winnerMatch": 24,
       "winnerSlot": "wrestler1",
@@ -293,13 +293,13 @@
       "round": "ChampR1",
       "wrestler1": {
         "seed": 31,
-        "name": "Richard Castro-Sandoval",
-        "school": "CSU Bakersfield"
+        "name": "Desmond Pleasant",
+        "school": "Drexel"
       },
       "wrestler2": {
         "seed": 2,
-        "name": "Matt Ramos",
-        "school": "Purdue"
+        "name": "Eddie Ventresca",
+        "school": "Virginia Tech"
       },
       "winnerMatch": 24,
       "winnerSlot": "wrestler2",
