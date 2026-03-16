@@ -353,12 +353,19 @@ function toggleAABox() {
         wEl.dataset.slot = slot;
         wEl.dataset.matchId = match.matchId;
 
-        if (wrestler?.name && wrestler.name !== "TBD") {
-          const seedText = wrestler.seed ? "#" + wrestler.seed + " " : "";
-          wEl.textContent = seedText + wrestler.name;
-        } else {
-          wEl.textContent = "TBD";
-        }
+        
+if (wrestler?.name && wrestler.name !== "TBD") {
+  const seedText = wrestler.seed ? `#${wrestler.seed} ` : "";
+  const schoolText = wrestler.school ? wrestler.school : "";
+  const recordText = wrestler.record ? wrestler.record : "";
+
+  wEl.innerHTML = `
+    <div class="w-name">${seedText}${wrestler.name}</div>
+    <div class="w-meta">${schoolText}${recordText ? " • " + recordText : ""}</div>
+  `;
+} else {
+  wEl.innerHTML = `<div class="w-name">TBD</div>`;
+}
 
         if (wrestler?.highlight) {
           wEl.style.border = "2px solid orange";
