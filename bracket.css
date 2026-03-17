@@ -1,51 +1,240 @@
-
+/* ── BASE ── */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #F5F3EE;
+  color: #1A1A2E;
 }
+
 .title {
   text-align: center;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #1A1A2E;
+  padding: 10px 0 4px;
 }
+
+/* ── BRACKET GRID ── */
 .bracket-grid {
   position: relative;
   width: 1400px;
   height: 1800px;
   margin: auto;
-  border: 1px solid #ccc;
-}
-.match {
-  position: absolute;
-  background: #f9f9f9;
-  width: 140px;
-  padding: 3px 6px;
-  font-size: 11px;
-  border: 1px solid #999;
-  box-shadow: 1px 1px 2px #aaa;
-}
-.match .wrestler {
-  margin-bottom: 2px;
-}
-.match.prelim {
-  border-style: dashed;
-  background: #fffbe6;
-}
-.match.placement {
-  background: #e6f4ff;
-  border-color: #0077cc;
+  border: 1.5px solid #D4C9B8;
+  background: #F5F3EE;
+  border-radius: 8px;
 }
 
+/* ── ALL MATCH BOXES ── */
+.match {
+  position: absolute;
+  background: #FFFFFF;
+  border: 1.5px solid #D4C9B8;
+  border-radius: 6px;
+  padding: 0;
+  font-size: 11px;
+  box-shadow: 0 1px 4px rgba(26,58,107,.07);
+  overflow: hidden;
+  transition: border-color .15s, box-shadow .15s;
+
+  /* DEFAULT: narrow advancer box — name only */
+  width: 155px;
+}
+
+.match:hover {
+  border-color: #1A3A6B;
+  box-shadow: 0 2px 8px rgba(26,58,107,.13);
+}
+
+/* ── WRESTLER ROWS ── */
+.match .wrestler {
+  display: flex;
+  align-items: center;
+  padding: 4px 7px;
+  border-bottom: 1px solid #EDE8DF;
+  min-height: 22px;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background .12s;
+}
+
+.match .wrestler:last-child {
+  border-bottom: none;
+}
+
+.match .wrestler:hover {
+  background: #EEF2FA;
+}
+
+/* ── NAME + META LINES (from app.js innerHTML) ── */
+.match .w-name {
+  font-size: 11px;
+  font-weight: 600;
+  color: #1A1A2E;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.25;
+  flex: 1;
+  min-width: 0;
+}
+
+.match .w-meta {
+  /* Hidden on advancer/narrow boxes — shown only on wide boxes below */
+  display: none;
+  font-size: 9.5px;
+  color: #8A8A9A;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2;
+  margin-top: 1px;
+}
+
+/* ── WIDE BOXES: pigtail + champ R1 ──
+   Matches 0–16 sit at left ≤ 280px in matchPositions.
+   We widen these via a data attribute set in app.js,
+   OR we target them by their absolute left position using
+   a CSS trick: any .match whose inline left is ≤ 300px.
+   Since we can't do that in pure CSS, we add a class hook below.
+   app.js uses matchPositions — matches 0–16 have left 100 or 280.
+   We'll target via a .wide class we inject with a small script. ── */
+
+.match.wide {
+  width: 230px;
+}
+
+.match.wide .wrestler {
+  /* Single line: seed+name then school inline */
+  flex-direction: row;
+  align-items: center;
+  padding: 5px 8px;
+  min-height: 26px;
+  gap: 0;
+}
+
+.match.wide .w-name {
+  font-size: 11px;
+  font-weight: 600;
+  flex-shrink: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.match.wide .w-meta {
+  /* Show inline after name, separated by a dot */
+  display: inline;
+  font-size: 10px;
+  color: #8A8A9A;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 0;
+  margin-left: 5px;
+  flex-shrink: 2;
+  min-width: 0;
+}
+
+/* ── WINNER HIGHLIGHT ── */
+.match .wrestler[style*="border: 2px solid orange"] {
+  background: #FFF7E6 !important;
+}
+
+/* ── PLACEMENT MATCHES ── */
+.match.placement {
+  background: #EEF2FA;
+  border-color: #1A3A6B;
+}
+
+.match.placement .w-name {
+  color: #1A3A6B;
+}
+
+/* ── PRELIM / PIGTAIL ── */
+.match.prelim {
+  border-style: dashed;
+  border-color: #B8C8E8;
+  background: #F4F7FF;
+}
+
+/* ── PLACEMENT LABELS ── */
+.placement-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #1A3A6B;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+/* ── ALL-AMERICANS BOX ── */
+#allAmericanBox {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  background: #FFFFFF;
+  border: 2px solid #1A3A6B;
+  border-radius: 10px;
+  padding: 14px 18px;
+  box-shadow: 0 4px 16px rgba(26,58,107,.15);
+  font-family: 'Segoe UI', Arial, sans-serif;
+  display: none;
+  z-index: 1000;
+  min-width: 200px;
+}
+
+#aaTitle {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #1A3A6B;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+#aaList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+#aaList li {
+  font-size: 13px;
+  color: #1A1A2E;
+  padding: 3px 0;
+  border-bottom: 1px dashed #D4C9B8;
+  line-height: 1.4;
+}
+
+#aaList li:first-child {
+  font-weight: 700;
+  color: #1A3A6B;
+}
+
+#aaList li:last-child {
+  border-bottom: none;
+}
+
+/* ── LABEL / MISC ── */
 .label {
   position: absolute;
   font-weight: bold;
   font-size: 12px;
+  color: #1A1A2E;
 }
+
 .allAmericanBlock {
   position: absolute;
   top: 20px;
   right: 40px;
   width: 220px;
   background: #fff;
-  border: 2px solid #000;
-  box-shadow: 4px 4px 10px rgba(0,0,0,0.1);
+  border: 2px solid #1A3A6B;
+  box-shadow: 4px 4px 10px rgba(0,0,0,.1);
   padding: 1rem;
   border-radius: 8px;
   font-family: sans-serif;
@@ -56,6 +245,7 @@ body {
   font-weight: bold;
   margin-bottom: 10px;
   text-align: center;
+  color: #1A3A6B;
 }
 
 .aaList {
@@ -66,6 +256,6 @@ body {
 
 .aaList li {
   padding: 4px 0;
-  border-bottom: 1px dashed #ccc;
+  border-bottom: 1px dashed #D4C9B8;
+  font-size: 13px;
 }
-
