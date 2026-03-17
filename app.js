@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const champF  = [Math.round(30 + STEP * 7.5)];
 
   // Cons side starts below champ
-  const CS = 780; // CONS_START
+  const CS = 972; // CONS_START
 
   const matchPositions = {
     // Pigtail
