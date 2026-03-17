@@ -173,10 +173,10 @@ document.addEventListener("DOMContentLoaded", function () {
     "59": { left: 1080, top: CS + STEP * 1.5 },
     "60": { left: 1080, top: CS + STEP * 5.5 },
 
-    // Placement
-    "61": { left: 980, top: CS + STEP * 11  }, // 7th
-    "62": { left: 980, top: CS + STEP * 14  }, // 5th
-    "63": { left: 980, top: CS + STEP * 17  }, // 3rd
+    // Placement (tightly spaced — just below cons semis)
+    "61": { left: 980, top: CS + STEP * 8   }, // 7th
+    "62": { left: 980, top: CS + STEP * 10  }, // 5th
+    "63": { left: 980, top: CS + STEP * 12  }, // 3rd
   };
 
   // ── RENDER ──────────────────────────────────────────────────
@@ -186,9 +186,11 @@ document.addEventListener("DOMContentLoaded", function () {
   function renderBrackets(data) {
     bracketGrid.innerHTML = "";
 
-    // Auto-size grid height to fit all matches
-    const allTops = Object.values(matchPositions).map(p => p.top);
-    bracketGrid.style.height = (Math.max(...allTops) + 120) + "px";
+    // Auto-size grid height — generous padding so cons bracket never clips
+    var allTops = Object.values(matchPositions).map(function(p) { return p.top; });
+    var gridH = Math.max.apply(null, allTops) + 180;
+    bracketGrid.style.height = gridH + "px";
+    bracketGrid.style.width  = "1300px";
 
     data.matches.forEach(function(match) {
       const pos = matchPositions[String(match.matchId)] || { left: 0, top: 0 };
