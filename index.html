@@ -136,25 +136,39 @@
         /* PDF export */
         function exportBracketPDF() {
             const pdfWrapper = document.getElementById('pdfWrapper');
+            const bracketGrid = document.getElementById('bracketGrid');
             const aaBox = document.getElementById('allAmericanBox');
             const wasHidden = aaBox.style.display === 'none' || aaBox.style.display === '';
             if (wasHidden) aaBox.style.display = 'block';
-            pdfWrapper.style.width = '16.8in';
-            pdfWrapper.style.height = '10.5in';
-            pdfWrapper.style.transform = 'scale(0.9)';
-            pdfWrapper.style.transformOrigin = 'top left';
+
+            // Scale the grid so it fits on one 17x11 landscape page
+            // Grid is ~1300px wide, 1800px tall — target ~1632x1008px (96dpi @ 17x11in)
+            // We scale to fit height: 1008/gridH
+            const gridH = bracketGrid.offsetHeight || 1800;
+            const scaleH = 1008 / gridH;
+            const scaleW = 1584 / 1300;
+            const scale  = Math.min(scaleH, scaleW, 1).toFixed(3);
+
+            pdfWrapper.style.width           = '16.5in';
+            pdfWrapper.style.height          = '10.5in';
+            pdfWrapper.style.overflow        = 'hidden';
+            bracketGrid.style.transform      = 'scale(' + scale + ')';
+            bracketGrid.style.transformOrigin = 'top left';
+
             const opt = {
-                margin: [0,0,0,0],
-                filename: document.getElementById('bracketTitle').innerText.replace(/ /g,'_') + '.pdf',
-                image: { type:'jpeg', quality:0.95 },
-                html2canvas: { scale:2, useCORS:true, allowTaint:true, scrollY:0 },
-                jsPDF: { unit:'in', format:[17,11], orientation:'landscape' }
+                margin: [0, 0, 0, 0],
+                filename: document.getElementById('bracketTitle').innerText.replace(/ /g, '_') + '.pdf',
+                image: { type: 'jpeg', quality: 0.95 },
+                html2canvas: { scale: 2, useCORS: true, allowTaint: true, scrollY: 0 },
+                jsPDF: { unit: 'in', format: [17, 11], orientation: 'landscape' }
             };
-            html2pdf().set(opt).from(pdfWrapper).save().then(() => {
-                pdfWrapper.style.transform = '';
-                pdfWrapper.style.transformOrigin = '';
-                pdfWrapper.style.width = '';
-                pdfWrapper.style.height = '';
+
+            html2pdf().set(opt).from(pdfWrapper).save().then(function() {
+                bracketGrid.style.transform      = '';
+                bracketGrid.style.transformOrigin = '';
+                pdfWrapper.style.width   = '';
+                pdfWrapper.style.height  = '';
+                pdfWrapper.style.overflow = '';
                 if (wasHidden) aaBox.style.display = 'none';
             });
         }
