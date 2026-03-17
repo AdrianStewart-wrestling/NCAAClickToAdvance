@@ -8,11 +8,24 @@
     <link rel="stylesheet" href="bracket.css">
     <style>
         @media print {
-            body::before { display: none; }
-            #weightSelector { display: none; }
-            #pdfWrapper { width:16.8in; height:10.5in; overflow:hidden; }
+            @page { size: 17in 11in landscape; margin: 0; }
+            body::before { display: none !important; }
+            body { background: #fff !important; }
+            #weightSelector { display: none !important; }
+            #toggleAABox    { display: none !important; }
+            #accessModal    { display: none !important; }
+            #pdfWrapper {
+                position: relative !important;
+                width: 16.8in !important;
+                height: 10.5in !important;
+                overflow: hidden !important;
+                padding: 0 !important;
+            }
+            #bracketGrid {
+                transform: scale(0.72);
+                transform-origin: top left;
+            }
             .match { break-inside: avoid; }
-            #accessModal { display: none !important; }
         }
         @media (max-width: 600px) {
             body { font-size: 14px; }
