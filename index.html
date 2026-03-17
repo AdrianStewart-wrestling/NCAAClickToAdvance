@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,50 +7,430 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="bracket.css">
     <style>
+        /* ── RESET & BASE ── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg:         #F5F3EE;
+            --surface:    #EDEAE3;
+            --card:       #FFFFFF;
+            --border:     #D4C9B8;
+            --accent:     #1A3A6B;
+            --accent-dim: #122850;
+            --accent-lt:  #E8EDF5;
+            --text:       #1A1A2E;
+            --muted:      #8A8A9A;
+            --red:        #A32D2D;
+            --win-bg:     #EAF3DE;
+            --win-text:   #3B6D11;
+            --loss-bg:    #F0F0F5;
+            --loss-text:  #5A5A6E;
+        }
+
+        html, body {
+            min-height: 100vh;
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        /* ── TOP ACCENT BAR ── */
+        body::before {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 4px;
+            background: var(--accent);
+        }
+
+        /* ── PAGE TITLE ── */
+        .title {
+            font-size: clamp(1.4rem, 3vw, 2rem);
+            font-weight: 700;
+            color: var(--text);
+            text-align: center;
+            padding: 14px 24px 4px;
+            letter-spacing: .01em;
+        }
+
+        /* ── WEIGHT SELECTOR BAR ── */
+        #weightSelector {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 16px 24px 12px;
+            border-bottom: 1.5px solid var(--border);
+            background: var(--card);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            box-shadow: 0 2px 8px rgba(0,0,0,.06);
+        }
+
+        #weightSelector button {
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: .04em;
+            padding: 8px 16px;
+            border-radius: 999px;
+            border: 1.5px solid var(--border);
+            background: var(--surface);
+            color: var(--muted);
+            cursor: pointer;
+            transition: all .18s;
+        }
+
+        #weightSelector button:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: var(--accent-lt);
+        }
+
+        #weightSelector button.active,
+        #weightSelector button[data-active="true"] {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
+        }
+
+        /* Export + Debug buttons */
+        #weightSelector button[onclick*="exportBracket"],
+        #weightSelector button[onclick*="exportBracketPDF"] {
+            background: var(--card);
+            color: var(--accent);
+            border-color: var(--accent);
+            margin-left: 8px;
+        }
+
+        #weightSelector button[onclick*="exportBracket"]:hover,
+        #weightSelector button[onclick*="exportBracketPDF"]:hover {
+            background: var(--accent);
+            color: #fff;
+        }
+
+        /* Debug SHOW AA button (fixed) */
+        button[onclick*="debugAAUpdate"] {
+            position: fixed !important;
+            bottom: 14px;
+            right: 14px;
+            z-index: 9999;
+            font-size: 11px !important;
+            padding: 6px 12px !important;
+            border-radius: 6px !important;
+            background: var(--surface) !important;
+            border: 1.5px solid var(--border) !important;
+            color: var(--muted) !important;
+            cursor: pointer;
+        }
+
+        /* ── BRACKET WRAPPER ── */
+        #pdfWrapper {
+            position: relative;
+            width: 100%;
+            overflow-x: auto;
+            padding: 20px 16px 40px;
+        }
+
+        /* ── BRACKET GRID (app.js builds this) ── */
+        .bracket-grid {
+            display: flex;
+            gap: 0;
+            min-width: max-content;
+        }
+
+        /* ── MATCH BOXES ──
+           Two-line layout: seed+name / team
+           app.js likely creates .match and .wrestler elements;
+           we style them here generically. ── */
+
+        .match {
+            background: var(--card);
+            border: 1.5px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: border-color .15s, box-shadow .15s;
+            break-inside: avoid;
+        }
+
+        .match:hover {
+            border-color: var(--accent);
+            box-shadow: 0 2px 10px rgba(26,58,107,.1);
+        }
+
+        /* Each wrestler row inside a match */
+        .wrestler,
+        .match-wrestler,
+        .bout-wrestler {
+            display: flex;
+            flex-direction: column;
+            padding: 5px 8px;
+            border-bottom: 1px solid var(--border);
+            min-width: 0;
+        }
+
+        .wrestler:last-child,
+        .match-wrestler:last-child,
+        .bout-wrestler:last-child {
+            border-bottom: none;
+        }
+
+        /* Seed + Name line */
+        .wrestler-name,
+        .match-name,
+        .bout-name {
+            display: flex;
+            align-items: baseline;
+            gap: 5px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: 1.3;
+        }
+
+        /* Seed bubble */
+        .wrestler-seed,
+        .seed,
+        .match-seed {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 18px;
+            height: 18px;
+            border-radius: 4px;
+            background: var(--accent-lt);
+            color: var(--accent);
+            font-size: 10px;
+            font-weight: 700;
+            padding: 0 3px;
+            flex-shrink: 0;
+            line-height: 1;
+        }
+
+        /* Team name line */
+        .wrestler-team,
+        .match-team,
+        .bout-team,
+        .team-name {
+            font-size: 10px;
+            color: var(--muted);
+            font-weight: 400;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: 1.3;
+            margin-top: 1px;
+            padding-left: 23px; /* indent to align under name, past seed bubble */
+        }
+
+        /* Winner highlight */
+        .wrestler.winner,
+        .match-wrestler.winner,
+        .bout-wrestler.winner {
+            background: var(--win-bg);
+        }
+
+        .wrestler.winner .wrestler-name,
+        .match-wrestler.winner .match-name,
+        .bout-wrestler.winner .bout-name {
+            color: var(--win-text);
+        }
+
+        .wrestler.winner .wrestler-seed,
+        .match-wrestler.winner .match-seed {
+            background: rgba(59,109,17,.15);
+            color: var(--win-text);
+        }
+
+        /* Loser / eliminated */
+        .wrestler.loser,
+        .match-wrestler.loser {
+            opacity: .55;
+        }
+
+        /* ── ROUND HEADERS ── */
+        .round-header,
+        .round-label {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--muted);
+            text-align: center;
+            padding: 8px 4px 10px;
+        }
+
+        /* ── ALL-AMERICANS BOX ── */
+        #allAmericanBox {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            background: var(--card);
+            border: 2px solid var(--accent);
+            border-radius: 10px;
+            padding: 14px 20px;
+            box-shadow: 0 4px 16px rgba(26,58,107,.15);
+            font-family: inherit;
+            display: none;
+            z-index: 1000;
+            min-width: 200px;
+        }
+
+        #aaTitle {
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        #aaList {
+            margin: 0;
+            padding-left: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        #aaList li {
+            font-size: 13px;
+            color: var(--text);
+            line-height: 1.4;
+        }
+
+        #aaList li:first-child {
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        /* ── ACCESS MODAL ── */
+        #accessModal {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(26,26,46,.75);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            backdrop-filter: blur(4px);
+        }
+
+        #accessModal > div {
+            background: var(--card);
+            padding: 2.5rem 2rem;
+            border-radius: 14px;
+            text-align: center;
+            border: 1.5px solid var(--border);
+            box-shadow: 0 8px 32px rgba(0,0,0,.18);
+            width: 340px;
+            max-width: 90vw;
+        }
+
+        #accessModal h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+
+        #accessModal p.subtitle {
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 20px;
+        }
+
+        #accessCodeInput {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1.5px solid var(--border);
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: inherit;
+            color: var(--text);
+            background: var(--surface);
+            text-align: center;
+            letter-spacing: .12em;
+            transition: border-color .2s, box-shadow .2s;
+        }
+
+        #accessCodeInput:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(26,58,107,.12);
+        }
+
+        #accessModal button {
+            margin-top: 16px;
+            width: 100%;
+            padding: 11px;
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            transition: background .18s;
+        }
+
+        #accessModal button:hover {
+            background: var(--accent-dim);
+        }
+
+        #accessError {
+            color: var(--red);
+            font-size: 13px;
+            margin-top: 10px;
+            display: none;
+        }
+
+        /* ── SCROLLBAR ── */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+        /* ── PRINT ── */
         @media print {
-            #bracketGrid {
+            body::before { display: none; }
+            #weightSelector { display: none; }
+            #pdfWrapper {
                 width: 16.8in;
                 height: 10.5in;
                 overflow: hidden;
+                padding: 0;
             }
-            .match {
-                break-inside: avoid;
-            }
+            .match { break-inside: avoid; }
+            #accessModal { display: none !important; }
         }
+
+        /* ── MOBILE ── */
         @media (max-width: 600px) {
-            body {
-                font-size: 14px;
-            }
-            .title {
-                font-size: 1.5rem;
-            }
-            button {
-                font-size: 1rem;
-                padding: 0.5rem 1rem;
-            }
-            #bracketGrid {
-                width: 100%;
-                height: auto;
-            }
+            body { font-size: 14px; }
+            .title { font-size: 1.3rem; padding: 12px 16px 4px; }
+            #weightSelector { gap: 6px; padding: 12px 16px; }
+            #weightSelector button { padding: 6px 12px; font-size: 12px; }
+            #pdfWrapper { padding: 12px 8px 32px; }
             #allAmericanBox {
                 width: 90%;
                 right: 5%;
                 top: 10px;
-                padding: 10px;
-            }
-            #accessModal div {
-                width: 90%;
-                padding: 1rem;
-            }
-            #accessCodeInput {
-                width: 100%;
+                padding: 10px 14px;
             }
         }
     </style>
 </head>
 <body>
-    <div id="weightSelector" style="text-align:center; margin: 12px 0;">
-        <button onclick="debugAAUpdate()" style='position:fixed;bottom:10px;right:10px;z-index:9999'>SHOW AA</button>
+    <div id="weightSelector">
+        <button onclick="debugAAUpdate()" style="">SHOW AA</button>
         <button data-weight="125">125</button>
         <button data-weight="133">133</button>
         <button data-weight="141">141</button>
@@ -62,26 +441,16 @@
         <button data-weight="184">184</button>
         <button data-weight="197">197</button>
         <button data-weight="285">285</button>
-        <button onclick="exportBracketPDF()" style="margin-left: 12px;">Export PDF</button>
+        <button onclick="exportBracketPDF()" style="">Export PDF</button>
     </div>
 
     <h1 class="title" id="bracketTitle">125 lb NCAA Bracket - Full View</h1>
+
     <div id="pdfWrapper" style="position: relative; width: 100%;">
         <div class="bracket-grid" id="bracketGrid"></div>
-        <div id="allAmericanBox" style="
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            background: #fff;
-            border: 2px solid #333;
-            border-radius: 8px;
-            padding: 10px 20px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            font-family: sans-serif;
-            display: none;
-            z-index: 1000;">
+        <div id="allAmericanBox">
             <h3 id="aaTitle">NCAA All-Americans</h3>
-            <ol id="aaList" style="margin: 0; padding-left: 1.2rem;">
+            <ol id="aaList">
                 <li>1st - TBD</li>
                 <li>2nd - TBD</li>
                 <li>3rd - TBD</li>
@@ -104,16 +473,15 @@
 
     <script src="html2pdf.bundle.min.js"></script>
     <script src="app.js?v=20250529"></script>
+
     <script>
         function exportBracketPDF() {
             const pdfWrapper = document.getElementById('pdfWrapper');
             const aaBox = document.getElementById('allAmericanBox');
 
-            // Ensure AA box is visible during export
             const wasHidden = aaBox.style.display === 'none';
             if (wasHidden) aaBox.style.display = 'block';
 
-            // Scale wrapper for export layout
             pdfWrapper.style.width = '16.8in';
             pdfWrapper.style.height = '10.5in';
             pdfWrapper.style.transform = 'scale(0.9)';
@@ -128,7 +496,6 @@
             };
 
             html2pdf().set(opt).from(pdfWrapper).save().then(() => {
-                // Restore original styles
                 pdfWrapper.style.transform = '';
                 pdfWrapper.style.transformOrigin = '';
                 pdfWrapper.style.width = '';
@@ -139,13 +506,13 @@
     </script>
 
     <!-- Access Lock Modal -->
-    <div id="accessModal" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#000a;display:flex;align-items:center;justify-content:center;z-index:9999;">
-        <div style="background:#fff;padding:2rem;border-radius:10px;text-align:center">
+    <div id="accessModal">
+        <div>
             <h2>Enter Access Code</h2>
-            <input id="accessCodeInput" type="text" placeholder="Access Code" style="padding:0.5rem;margin-top:1rem;width:200px;" />
-            <br><br>
-            <button onclick="validateAccessCode()" style="padding:0.5rem 1rem;">Submit</button>
-            <p id="accessError" style="color:red;display:none;margin-top:1rem;">Invalid Code</p>
+            <p class="subtitle">Enter your code to view the bracket</p>
+            <input id="accessCodeInput" type="text" placeholder="ACCESS CODE" />
+            <button onclick="validateAccessCode()">Submit</button>
+            <p id="accessError">Invalid code — please try again.</p>
         </div>
     </div>
 </body>
