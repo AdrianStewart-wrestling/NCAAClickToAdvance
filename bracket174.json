@@ -6,13 +6,15 @@
       "round": "Prelim",
       "wrestler1": {
         "seed": 33,
-        "name": "Michael Wilson",
-        "school": "Rider"
+        "name": "Grant O`Dell",
+        "school": "Bellarmine",
+        "record": "24-8"
       },
       "wrestler2": {
         "seed": 32,
-        "name": "Jack McGill",
-        "school": "Columbia"
+        "name": "Luke Condon",
+        "school": "Wisconsin",
+        "record": "13-13"
       },
       "winnerMatch": 1,
       "winnerSlot": "wrestler2",
@@ -24,8 +26,9 @@
       "round": "ChampR1",
       "wrestler1": {
         "seed": 1,
-        "name": "Keegan O`Toole",
-        "school": "Missouri"
+        "name": "Levi Haines",
+        "school": "Penn State",
+        "record": "21-0"
       },
       "wrestler2": {
         "name": "TBD",
@@ -41,13 +44,15 @@
       "round": "ChampR1",
       "wrestler1": {
         "seed": 17,
-        "name": "Sergio Desiante",
-        "school": "Chattanooga"
+        "name": "Jared Simma",
+        "school": "Northern Iowa",
+        "record": "14-9"
       },
       "wrestler2": {
         "seed": 16,
-        "name": "Lorenzo Norman",
-        "school": "Stanford"
+        "name": "Nick Fine",
+        "school": "Columbia",
+        "record": "24-8"
       },
       "winnerMatch": 17,
       "winnerSlot": "wrestler2",
@@ -59,13 +64,15 @@
       "round": "ChampR1",
       "wrestler1": {
         "seed": 9,
-        "name": "Carson Kharchla",
-        "school": "Ohio State"
+        "name": "Beau Mantanona",
+        "school": "Michigan",
+        "record": "21-7"
       },
       "wrestler2": {
         "seed": 24,
-        "name": "Lennox Wolak",
-        "school": "Virginia Tech"
+        "name": "Garrett Thompson",
+        "school": "Ohio",
+        "record": "16-3"
       },
       "winnerMatch": 18,
       "winnerSlot": "wrestler1",
@@ -77,13 +84,15 @@
       "round": "ChampR1",
       "wrestler1": {
         "seed": 25,
-        "name": "Dalton Harkins",
-        "school": "Army West Point"
+        "name": "Sergio Desiante",
+        "school": "Virginia Tech",
+        "record": "20-13"
       },
       "wrestler2": {
         "seed": 8,
-        "name": "Lenny Pinto",
-        "school": "Nebraska"
+        "name": "Alex Facundo",
+        "school": "Oklahoma State",
+        "record": "16-6"
       },
       "winnerMatch": 18,
       "winnerSlot": "wrestler2",
@@ -95,13 +104,15 @@
       "round": "ChampR1",
       "wrestler1": {
         "seed": 5,
-        "name": "Simon Ruiz",
-        "school": "Cornell"
+        "name": "Patrick Kennedy",
+        "school": "Iowa",
+        "record": "18-4"
       },
       "wrestler2": {
         "seed": 28,
-        "name": "Clayton Whiting",
-        "school": "Minnesota"
+        "name": "Holden Garcia",
+        "school": "Princeton",
+        "record": "21-10"
       },
       "winnerMatch": 19,
       "winnerSlot": "wrestler1",
@@ -113,13 +124,15 @@
       "round": "ChampR1",
       "wrestler1": {
         "seed": 21,
-        "name": "Joshua Ogunsanya",
-        "school": "North Carolina"
+        "name": "Lenny Pinto",
+        "school": "Rutgers",
+        "record": "13-10"
       },
       "wrestler2": {
         "seed": 12,
-        "name": "Myles Takats",
-        "school": "Bucknell"
+        "name": "Carter Schubert",
+        "school": "Oklahoma",
+        "record": "19-6"
       },
       "winnerMatch": 19,
       "winnerSlot": "wrestler2",
@@ -131,13 +144,15 @@
       "round": "ChampR1",
       "wrestler1": {
         "seed": 13,
-        "name": "Cade DeVos",
-        "school": "South Dakota State"
+        "name": "Carter Baer",
+        "school": "Binghamton",
+        "record": "18-4"
       },
       "wrestler2": {
         "seed": 20,
-        "name": "Dan Braunagel",
-        "school": "Illinois"
+        "name": "Daschle Lamer",
+        "school": "Oregon State",
+        "record": "19-3"
       },
       "winnerMatch": 20,
       "winnerSlot": "wrestler1",
@@ -149,13 +164,15 @@
       "round": "ChampR1",
       "wrestler1": {
         "seed": 29,
-        "name": "Jackson Turley",
-        "school": "Rutgers"
+        "name": "Avery Bassett",
+        "school": "Lock Haven",
+        "record": "22-7"
       },
       "wrestler2": {
         "seed": 4,
-        "name": "Garrett Thompson",
-        "school": "Ohio"
+        "name": "Carson Kharchla",
+        "school": "Ohio State",
+        "record": "18-4"
       },
       "winnerMatch": 20,
       "winnerSlot": "wrestler2",
@@ -167,13 +184,15 @@
       "round": "ChampR1",
       "wrestler1": {
         "seed": 3,
-        "name": "Dean Hamiti",
-        "school": "Oklahoma State"
+        "name": "Christopher Minto",
+        "school": "Nebraska",
+        "record": "20-5"
       },
       "wrestler2": {
         "seed": 30,
-        "name": "Avery Bassett",
-        "school": "Lock Haven"
+        "name": "Riley Davis",
+        "school": "Wyoming",
+        "record": "11-10"
       },
       "winnerMatch": 21,
       "winnerSlot": "wrestler1",
@@ -185,13 +204,15 @@
       "round": "ChampR1",
       "wrestler1": {
         "seed": 19,
-        "name": "Jared Simma",
-        "school": "Northern Iowa"
+        "name": "Logan Messer",
+        "school": "George Mason",
+        "record": "26-6"
       },
       "wrestler2": {
         "seed": 14,
-        "name": "Matthew Singleton",
-        "school": "NC State"
+        "name": "Moses Espinoza-Owens",
+        "school": "SD State",
+        "record": "27-8"
       },
       "winnerMatch": 21,
       "winnerSlot": "wrestler2",
@@ -203,13 +224,15 @@
       "round": "ChampR1",
       "wrestler1": {
         "seed": 11,
-        "name": "Patrick Kennedy",
-        "school": "Iowa"
+        "name": "MJ Gaitan",
+        "school": "Iowa State",
+        "record": "16-6"
       },
       "wrestler2": {
         "seed": 22,
-        "name": "Nick Incontrera",
-        "school": "Pennsylvania"
+        "name": "Brody Baumann",
+        "school": "Purdue",
+        "record": "16-8"
       },
       "winnerMatch": 22,
       "winnerSlot": "wrestler1",
@@ -221,13 +244,15 @@
       "round": "ChampR1",
       "wrestler1": {
         "seed": 27,
-        "name": "Jasiah Queen",
-        "school": "Drexel"
+        "name": "Collin Carrigan",
+        "school": "North Carolina",
+        "record": "13-10"
       },
       "wrestler2": {
         "seed": 6,
-        "name": "Brevin Cassella",
-        "school": "Binghamton"
+        "name": "Matty Singleton",
+        "school": "NC State",
+        "record": "16-3"
       },
       "winnerMatch": 22,
       "winnerSlot": "wrestler2",
@@ -239,13 +264,15 @@
       "round": "ChampR1",
       "wrestler1": {
         "seed": 7,
-        "name": "Danny Wask",
-        "school": "Navy"
+        "name": "Cam Steed",
+        "school": "Missouri",
+        "record": "15-5"
       },
       "wrestler2": {
         "seed": 26,
-        "name": "Brody Baumann",
-        "school": "Purdue"
+        "name": "Derek Gilcher",
+        "school": "Indiana",
+        "record": "14-10"
       },
       "winnerMatch": 23,
       "winnerSlot": "wrestler1",
@@ -257,13 +284,15 @@
       "round": "ChampR1",
       "wrestler1": {
         "seed": 23,
-        "name": "MJ Gaitan",
-        "school": "Iowa State"
+        "name": "Luca Augustine",
+        "school": "Pittsburgh",
+        "record": "12-6"
       },
       "wrestler2": {
         "seed": 10,
-        "name": "Alex Cramer",
-        "school": "Central Michigan"
+        "name": "Myles Takats",
+        "school": "Bucknell",
+        "record": "22-6"
       },
       "winnerMatch": 23,
       "winnerSlot": "wrestler2",
@@ -275,13 +304,15 @@
       "round": "ChampR1",
       "wrestler1": {
         "seed": 15,
-        "name": "Luca Augustine",
-        "school": "Pittsburgh"
+        "name": "Danny Wask",
+        "school": "Navy",
+        "record": "22-4"
       },
       "wrestler2": {
         "seed": 18,
-        "name": "Gaven Sax",
-        "school": "Oklahoma"
+        "name": "Colin Kelly",
+        "school": "Illinois",
+        "record": "18-8"
       },
       "winnerMatch": 24,
       "winnerSlot": "wrestler1",
@@ -293,13 +324,15 @@
       "round": "ChampR1",
       "wrestler1": {
         "seed": 31,
-        "name": "Branson John",
-        "school": "Maryland"
+        "name": "Cael Valencia",
+        "school": "Arizona State",
+        "record": "16-10"
       },
       "wrestler2": {
         "seed": 2,
-        "name": "Levi Haines",
-        "school": "Penn State"
+        "name": "Simon Ruiz",
+        "school": "Cornell",
+        "record": "16-0"
       },
       "winnerMatch": 24,
       "winnerSlot": "wrestler2",
